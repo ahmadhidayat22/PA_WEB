@@ -1,0 +1,91 @@
+@import "admin.css";
+
+
+.wrapper .isi{
+    width: auto;
+    min-width: 100%;
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-top: 4px solid #bbb;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.wrapper .isi .head-content{
+    border-bottom: 1px solid #bbbb;
+    padding: 10px 0;
+    
+
+
+}
+.wrapper .isi .head-content button{
+    font-style: normal;
+    font-weight: 500;
+    background-color: #3876BF;
+    font-size: 13px;
+    color: white;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.wrapper .isi .neck-content{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 300;
+}
+.wrapper .isi .neck-content span input{
+    width: 150px;
+    padding: 5px;
+    /* appearance: none; */
+
+}
+
+.isi .tabel-content table{
+    width: 100%;
+    /* border: 1px solid red; */
+    border-collapse: collapse;
+
+}
+.isi .tabel-content table th{
+    padding: 10px 5px;
+    background-color: green;
+    text-align: left;
+    color: white;
+}
+.isi .tabel-content table th,
+.isi .tabel-content table td{
+    border: 1px solid #bbb;
+}
+.isi .tabel-content table td{
+    padding: 3px 5px;
+    align-content: center;
+}
+.isi .tabel-content table tr:nth-child(even){
+    background-color: #f0f0f0;
+}
+.isi .tabel-content table tr:hover{
+    background-color: #ddd;
+}
+.isi .tabel-content table tr button{
+    /* height: 40px; */
+    padding: 8px;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+.isi .tabel-content table tr button:nth-child(1){
+    background-color: rgb(7, 177, 98);
+}
+.isi .tabel-content table tr button:nth-child(2){
+    background-color: rgb(177, 7, 7);
+}

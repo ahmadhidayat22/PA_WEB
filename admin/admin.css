@@ -1,0 +1,403 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.container{
+    display: flex;
+    min-height: 100vh;
+
+}
+
+.sidebar{
+    background-color: #111827;
+    width: 260px;
+    /* padding: 24px; */
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: all ease-in .3s;
+
+}
+.sidebar.hide{
+    width: 87px;
+    transition: all ease-out .3s;
+}
+.header.hide{
+    display: none;
+}
+
+.main-content{
+    background-color: #eeeeee;
+    flex-grow: 1;
+}
+
+.sidebar .description-header{
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 16px;
+   text-align: center;
+   color: white;
+
+
+}
+.sidebar .header a{
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar .header .list-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 8px;
+    /* border-radius: 8px;
+    background-color: rgb(57, 73, 145); */
+    height: 40px;
+    box-sizing: border-box;
+  
+}
+.sidebar .main .list-item:hover{
+    background-color: rgb(77, 148, 148);
+    transition: all .2s ease-in-out;
+
+
+}
+.sidebar .main .list-item a{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+
+}
+
+.sidebar .main .list-item{
+    /* margin-top: 20px; */
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    
+}
+.sidebar.hide .list-item.center{
+    justify-content: center;
+
+}
+.sidebar .main .description{
+    margin-left: 5px;
+}
+.description.hide{
+    display: none;
+}
+
+.main .head-list{
+    color: #475061;
+    padding: 10px 15px;
+    background-color:  #080b11;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+.head-list.hide{
+    display: none;
+}
+
+.container .sidebar .info-user{
+    /* border: 1px solid green; */
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container .sidebar .info-user .content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.sidebar.hide .content.hide{
+    display: none;
+}
+
+.container .sidebar .info-user .picture{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+}  
+
+.container .sidebar .info-user .content .online .info{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    
+}
+.container .sidebar .info-user .content .online{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+   
+
+}
+.container .sidebar .info-user .content .online p{
+
+    font-size: 12px;
+    font-weight: 200;
+}
+
+
+
+/* toogle menu */
+
+#menu-button{
+    width: 36px;
+    position: absolute;
+    overflow: hidden;
+    margin: 10px;
+    /* background-color: red; */
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+
+}
+
+#menu-checkbox{
+    display: none;
+}
+
+#hamburger, #menu-label:after, #menu-label:before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+
+}
+
+#menu-label:after, #menu-label:before {
+    content: "";
+    transition: .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+}
+#menu-label:before{
+    top: 0;
+}
+
+#menu-label:after{
+    top: 8px;
+
+}
+#hamburger{
+    top: 16px;
+}
+#hamburger:before{
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: #111827;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+#menu-checkbox:checked + #menu-label::before{
+    left: -39px;
+
+}
+
+#menu-checkbox:checked + #menu-label::after{
+    left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #hamburger::before{
+    animation: moveUPThenDown 0.8s ease 0.2s forwards,
+    shakeUp 0.8s ease 0.2s forwards, 
+    shakedown 0.2s ease 0.8s forwards;
+}
+
+@keyframes moveUPThenDown {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: -27px;
+    }
+    100%{
+        top: -14px;
+    }
+}
+
+@keyframes shakeUp {
+    0%{
+        transform: rotateZ(0);
+    }
+    25%{
+        transform: rotateZ(-10deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotateZ(10deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes shakedown {
+    0%{
+        transform: rotateZ(0);
+    }
+    80%{
+        transform: rotateZ(3deg);
+    }
+    90%{
+        transform: rotateZ(-3deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
+
+
+
+
+.wrapper{
+    width: auto;
+    min-width: 100%;
+    /* border: 1px solid red; */
+    margin: 50px 0;
+    padding: 10px;
+}
+.wrapper .header{
+    font-style: medium;
+    font-weight: 400;
+    font-size: 20px;
+    /* border: 1px solid red; */
+
+}
+
+.middle{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+
+}
+
+.middle .card-list{
+    /* border: 1px solid red; */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #adadad;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+
+}
+
+.middle .card-list:nth-child(1){
+    background-color: #005B41;
+
+}
+
+.card-list .details1{
+    background-color: #0c4e3b;
+    
+}
+
+.middle .card-list:nth-child(2){
+    background-color: #2E8A99;
+
+}
+.card-list .details2{
+    background-color: #347781;
+
+    
+}
+.middle .card-list:nth-child(3){
+    background-color: #e68816;
+
+}
+.card-list .details3{
+    background-color: #c77a1c;
+
+    
+}
+.middle .card-list:nth-child(4){
+    background-color: #AE445A;
+
+}
+.card-list .details4{
+    background-color: #964152;
+
+    
+}
+
+.card-list .containt{
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    padding: 10px;
+    /* border: 1px solid rgb(140, 0, 255); */
+    box-sizing: border-box;
+
+}
+
+.card-list .containt .left-containt{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.card-list .details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 5px;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+}
+.card-list .containt .bi{
+    font-size: 60px ;
+    color: white;
+
+
+}
+
+
+
+
+/* page ticket */
+
+
+
+
