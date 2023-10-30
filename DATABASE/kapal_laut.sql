@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2023 at 04:32 PM
+-- Generation Time: Oct 30, 2023 at 05:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,15 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Table structure for table `tiket`
 --
 
-CREATE TABLE `produk` (
+CREATE TABLE `tiket` (
   `id` int(255) NOT NULL,
-  `asal` int(11) NOT NULL,
-  `tujuan` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `asal` varchar(255) NOT NULL,
+  `tujuan` varchar(255) NOT NULL,
+  `tanggal_berangkat` varchar(255) NOT NULL,
+  `tanggal_tiba` varchar(255) NOT NULL,
+  `harga` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tiket`
+--
+
+INSERT INTO `tiket` (`id`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`, `harga`) VALUES
+(1, 'surabaya', 'balikpapan', '2023-10-30', '2023-10-30', 0),
+(2, 'surabaya', 'balikpapan', '2023-10-30', '2023-10-31', 25000);
 
 -- --------------------------------------------------------
 
@@ -61,9 +71,9 @@ INSERT INTO `users` (`Id`, `Username`, `Email`, `Age`, `Password`, `gambar`) VAL
 --
 
 --
--- Indexes for table `produk`
+-- Indexes for table `tiket`
 --
-ALTER TABLE `produk`
+ALTER TABLE `tiket`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -77,10 +87,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT for table `tiket`
 --
-ALTER TABLE `produk`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tiket`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
