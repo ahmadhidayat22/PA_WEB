@@ -13,7 +13,7 @@ require '../server.php'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css?v=1.1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -40,6 +40,7 @@ require '../server.php'
 <body>
 
     <div class="container">
+
         <div class="sidebar">
             <div class="header">
                 <a href="#">
@@ -111,6 +112,7 @@ require '../server.php'
             </div>
 
         </div>
+
         <div class="main-content">
             <div id="menu-button">
                 <input type="checkbox" name="" id="menu-checkbox">
@@ -119,6 +121,7 @@ require '../server.php'
                 </label>
             </div>
 
+            
             <div class="wrapper">
                 <div class="header">
                     <p>Dashboard</p>
@@ -147,10 +150,10 @@ require '../server.php'
 
                     <div class="card-list">
                         <div class="containt">
-                         
+
                             <?php $result = mysqli_query($conn, "SELECT *, COUNT(*) AS numrows FROM users ");
                             $row = mysqli_fetch_array($result);
-                                echo "
+                            echo "
                                 <div class='left-contain'>
                                 <h3>" . $row['numrows'] . "</h3>
                                 <p>Total of User</p>

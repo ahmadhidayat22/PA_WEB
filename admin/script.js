@@ -1,7 +1,3 @@
-
-
-
-
 $('#menu-label').click(function(){
 
     $('.sidebar').toggleClass('hide');
@@ -19,3 +15,4 @@ $('#menu-label').click(function(){
 
     
 })
+

@@ -1,10 +1,64 @@
+<?php
+require '../server.php';
+
+if (isset($_POST['tambah'])) {
+    $asal = $_POST['asal'];
+    $tujuan = $_POST['tujuan'];
+    $tgl_berangkat = $_POST['tgl_berangkat'];
+    $tgl_tiba = $_POST['tgl_tiba'];
+    $harga = $_POST['harga'];
+
+
+
+    if ($asal != $tujuan) {
+        $result = mysqli_query($conn, "insert into tiket values ('','$asal','$tujuan','$tgl_berangkat','$tgl_tiba','$harga')");
+
+        if ($result) {
+            echo "
+            <script>
+            alert('Data Berhasil Ditambahkan!');
+            document.location.href = 'tiket.php';
+            </script>
+        ";
+        } else {
+            echo "
+                <script>
+                alert('Data Gagal Ditambahkan!');
+                document.location.href = 'tiket.php';
+
+                </script>
+            ";
+        }
+    } else {
+        echo "
+        <script>
+        alert('asal dan tujuan tidak boleh sama!');
+        document.location.href = 'tiket.php';
+
+        </script>
+    ";
+    }
+}
+
+$result = mysqli_query($conn, "select * from tiket");
+
+$tiket = [];
+
+while ($record = mysqli_fetch_assoc($result)) {
+    $tiket[] = $record;
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tiket.css">
+    <link rel="stylesheet" href="tiket.css?v=1.1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -108,6 +162,47 @@
                 </label>
             </div>
 
+            <div class="modal" id="mymodal">
+                <div class="modal-content">
+                    <div class="header-content">
+                        <h3>Add New Tiket</h3>
+                    </div>
+                    <button id="close"><i class="bi bi-x"></i></button>
+                    <div class="isi-kontent">
+
+                        <form action="" method="post">
+                            <table border="1">
+                                <tr>
+                                    <td><label for="">Asal</label></td>
+                                    <td><input type="text" name="asal"></td>
+                                    <td><label for="">Tanggal Berangkat</label></td>
+                                    <td><input type="date" name="tgl_berangkat" id="datemin"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Tujuan</label> </td>
+                                    <td><input type="text" name="tujuan"></td>
+                                    <td><label for="">Tanggal Tiba</label></td>
+                                    <td><input type="date" name="tgl_tiba" id="datemin1"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="">Harga</label></td>
+                                    <td><input type="number" name="harga"></td>
+                                </tr>
+
+
+                            </table>
+
+                            <button type="submit" name="tambah">Add</button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
 
             <div class="wrapper">
                 <div class="header">
@@ -116,7 +211,7 @@
 
                 <div class="isi">
                     <div class="head-content">
-                        <button type="submit"><i class="bi bi-plus-lg"></i> New</button>
+                        <button type="submit" id="add"><i class="bi bi-plus-lg"></i> New</button>
 
                     </div>
                     <div class="neck-content">
@@ -146,21 +241,29 @@
                                 <th>Id</th>
                                 <th>Asal</th>
                                 <th>Tujuan</th>
+                                <th>Tanggal Berangkat</th>
+                                <th>Tanggal tiba</th>
                                 <th>Harga</th>
                                 <th>Tools</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td width="15%">
-                                    <button><i class="bi bi-pencil-fill"></i> Edit</button>
-                                    <button><i class="bi bi-trash3-fill"></i> Delete</button>
-                                </td>
-                            </tr>
-                         
-                            
+                            <?php foreach ($tiket as $tk) : ?>
+
+                                <tr>
+                                    <td><?= $tk["id"] ?></td>
+                                    <td><?= $tk["asal"] ?></td>
+                                    <td><?= $tk["tujuan"] ?></td>
+                                    <td><?= $tk["tanggal_berangkat"] ?></td>
+                                    <td><?= $tk["tanggal_tiba"] ?></td>
+                                    <td><?= $tk["harga"] ?></td>
+
+                                    <td width="15%">
+                                        <button><i class="bi bi-pencil-fill"></i> Edit</button>
+                                        <button><i class="bi bi-trash3-fill"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
                         </table>
                     </div>
                 </div>
@@ -169,7 +272,33 @@
 
 
 
+
+
+
+
         <script src="script.js"></script>
+        <script>
+            $('#add').click(function() {
+                // alert('Please');
+                $('#mymodal').css('display', 'block');
+
+            });
+            $('#close').click(function() {
+                $('#mymodal').css('display', 'none');
+
+            });
+            let modal = $('#mymodal')
+            $(window).click(function(event) {
+                console.log(modal)
+                if (event.target == modal) {
+                    alert('p');
+
+                    $('#mymodal').css('display', 'none');
+                }
+            });
+            datemin.min = new Date().toISOString().split("T")[0];
+            datemin1.min = new Date().toISOString().split("T")[0];
+        </script>
 
 </body>
 
