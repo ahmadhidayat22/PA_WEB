@@ -58,7 +58,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tiket.css?v=1.1">
+    <link rel="stylesheet" href="tiket.css?v=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -167,33 +167,36 @@ while ($record = mysqli_fetch_assoc($result)) {
                     <div class="header-content">
                         <h3>Add New Tiket</h3>
                     </div>
-                    <button id="close"><i class="bi bi-x"></i></button>
+                    <div id="close"><i class="bi bi-x"></i></div>
                     <div class="isi-kontent">
 
                         <form action="" method="post">
-                            <table border="1">
+                            <table>
                                 <tr>
                                     <td><label for="">Asal</label></td>
-                                    <td><input type="text" name="asal"></td>
+                                    <td><input type="text" name="asal" autocomplete="off" required></td>
                                     <td><label for="">Tanggal Berangkat</label></td>
-                                    <td><input type="date" name="tgl_berangkat" id="datemin"></td>
+                                    <td><input type="date" name="tgl_berangkat" id="datemin"  required></td>
                                 </tr>
                                 <tr>
                                     <td><label for="">Tujuan</label> </td>
-                                    <td><input type="text" name="tujuan"></td>
+                                    <td><input type="text" name="tujuan" autocomplete="off" required></td>
                                     <td><label for="">Tanggal Tiba</label></td>
-                                    <td><input type="date" name="tgl_tiba" id="datemin1"></td>
+                                    <td><input type="date" name="tgl_tiba" id="datemin1"  required></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><label for="">Harga</label></td>
-                                    <td><input type="number" name="harga"></td>
+                                    <td><input type="number" name="harga" autocomplete="off" required></td>
                                 </tr>
 
 
                             </table>
+                            <div class="footer-content">
 
-                            <button type="submit" name="tambah">Add</button>
+                                <button id="clos"><i class="bi bi-x"></i> Close</button>
+                                <button type="submit" name="tambah"><i class="bi bi-floppy2-fill"></i> Save</button>
+                            </div>
 
                         </form>
                     </div>
@@ -284,6 +287,10 @@ while ($record = mysqli_fetch_assoc($result)) {
 
             });
             $('#close').click(function() {
+                $('#mymodal').css('display', 'none');
+
+            });
+            $('#clos').click(function() {
                 $('#mymodal').css('display', 'none');
 
             });
