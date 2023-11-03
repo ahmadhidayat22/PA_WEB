@@ -4,7 +4,7 @@ require '../../koneksi.php';
 
 $id = $_GET["id"];
 
-$result = mysqli_query($conn, "select * from tiket where id = '$id'");
+$result = mysqli_query($conn, "select * from tiket where id_tiket = '$id'");
 
 $prd = [];
 
@@ -27,7 +27,8 @@ if(isset($_POST['back'])){
 
 
     if ($asal != $tujuan) {
-        $result = mysqli_query($conn, "update tiket set id = '$id' , asal = '$asal' , tujuan = '$tujuan' , tanggal_berangkat = '$tgl_berangkat', tanggal_tiba = '$tgl_tiba', harga = '$harga'");
+        $result = mysqli_query($conn, "update tiket set asal = '$asal' , tujuan = '$tujuan' , tanggal_berangkat = '$tgl_berangkat', tanggal_tiba = '$tgl_tiba', harga = '$harga' where id_tiket = '$id'");
+        var_dump($result);
 
         if ($result) {
             echo "

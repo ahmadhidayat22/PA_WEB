@@ -3,18 +3,21 @@ require '../koneksi.php';
 
 $id = $_GET['id'];
 
-$result_user = mysqli_query($conn, "select * from users where id = '$id'");
-$result_join = mysqli_query($conn, "SELECT id_user,asal,tujuan,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id = transaksi.id_tiket WHERE id_user = '$id'");
+$result_tiket =  mysqli_query($conn, "select * from tiket");
+$result_user = mysqli_query($conn, "select * from users where id_user = '$id'");
+$result_join = mysqli_query($conn, "SELECT id_transaksi,id_user,asal,tujuan,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id_tiket = transaksi.id_tiket WHERE id_user = '$id'");
 
+$tiket = [];
 $user = [];
-
 $res = [];
-
 while ($record = mysqli_fetch_assoc($result_user)) {
     $user[] = $record;
 }
 while ($record = mysqli_fetch_assoc($result_join)) {
     $res[] = $record;
+}
+while ($record = mysqli_fetch_assoc($result_tiket)) {
+    $tiket[] = $record;
 }
 
 
@@ -62,7 +65,7 @@ $user = $user[0];
     <div class="container">
         <div class="sidebar">
             <div class="header">
-                <a href="#">
+                <a href="home.php">
 
                     <div class="list-item">
                         <span class="description-header">Booking Site</span>
@@ -146,10 +149,7 @@ $user = $user[0];
                 </div>
 
                 <div class="isi">
-                    <div class="head-content">
-                        <button type="submit" id="add"><i class="bi bi-plus-lg"></i> New</button>
-
-                    </div>
+                    
                     <div class="neck-content">
                         <span>
                             <form action="" method="post">
@@ -176,9 +176,8 @@ $user = $user[0];
                     <div class="tabel-content">
 
 
-                        <table border="1">
+                        <table>
                             <tr>
-                                <th>id user</th>
                                 <th>Rute</th>
                                 <th>tanggal transaksi</th>
                                 <th>Total Harga</th>
@@ -189,7 +188,6 @@ $user = $user[0];
 
                                 <tr>
 
-                                    <td><?= $tr["id_user"] ?> </td>
                                     <td><?= $tr["asal"] ?> - <?= $tr["tujuan"] ?></td>
                                     <td><?= $tr["tanggal_transaksi"] ?></td>
                                     <td><?= $tr["total_harga"] ?></td>
@@ -198,7 +196,7 @@ $user = $user[0];
 
 
 
-                                        <a href="crud/delete.php?id=">
+                                        <a href="delete-cart.php?id=<?= $tr['id_transaksi'] ?>">
                                             <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
                                         </a>
                                     </td>
@@ -217,6 +215,42 @@ $user = $user[0];
 
     </div>
     </div>
+
+
+    <script>
+        $('#update').click(function() {
+
+            $('#mymodal-update').css('display', 'block');
+
+        });
+
+        $('#add').click(function() {
+
+            $('#mymodal').css('display', 'block');
+
+        });
+        $('#close').click(function() {
+            $('#mymodal').css('display', 'none');
+
+        });
+        $('#clos').click(function() {
+            $('#mymodal').css('display', 'none');
+
+        });
+        let modal = $('#mymodal')
+        $(window).click(function(event) {
+            console.log(modal)
+            if (event.target == modal) {
+                alert('p');
+
+                $('#mymodal').css('display', 'none');
+            }
+        });
+        datemin.min = new Date().toISOString().split("T")[0];
+        datemin1.min = new Date().toISOString().split("T")[0];
+    </script>
+
+
 
 </body>
 

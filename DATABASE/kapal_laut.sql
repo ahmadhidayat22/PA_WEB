@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 03:42 PM
+-- Generation Time: Nov 03, 2023 at 05:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tiket` (
-  `id` int(255) NOT NULL,
+  `id_tiket` int(255) NOT NULL,
   `asal` varchar(255) NOT NULL,
   `tujuan` varchar(255) NOT NULL,
   `tanggal_berangkat` varchar(255) NOT NULL,
@@ -40,10 +40,10 @@ CREATE TABLE `tiket` (
 -- Dumping data for table `tiket`
 --
 
-INSERT INTO `tiket` (`id`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`, `harga`) VALUES
-(6, 'awdwad', 'awd24awd', '2023-11-02', '2023-11-02', 214124),
-(8, '123', '1234', '2023-11-03', '2023-11-03', 235235),
-(9, 'penajam', 'balikpapan', '2023-11-03', '2023-11-03', 60000);
+INSERT INTO `tiket` (`id_tiket`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`, `harga`) VALUES
+(6, 'balikpapan', 'penajam', '2023-11-04', '2023-11-03', 65000),
+(8, 'balikpapan', 'Palu', '2023-11-04', '2023-11-05', 120000),
+(9, 'Sulawesi', 'Bau-bau', '2023-11-05', '2023-11-08', 200000);
 
 -- --------------------------------------------------------
 
@@ -52,20 +52,20 @@ INSERT INTO `tiket` (`id`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`
 --
 
 CREATE TABLE `transaksi` (
-  `id` int(100) NOT NULL,
+  `id_transaksi` int(100) NOT NULL,
   `id_user` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
   `total_harga` int(255) NOT NULL,
-  `tanggal_transaksi` date NOT NULL
+  `tanggal_transaksi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id`, `id_user`, `id_tiket`, `total_harga`, `tanggal_transaksi`) VALUES
-(3, 29, 8, 1230000, '2023-11-04'),
-(4, 30, 9, 60000, '2023-11-03');
+INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `id_tiket`, `total_harga`, `tanggal_transaksi`) VALUES
+(3, 29, 8, 123000, '2023-11-03 16:19:12'),
+(6, 30, 9, 60000, '2023-11-04 00:36:16');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ INSERT INTO `transaksi` (`id`, `id_user`, `id_tiket`, `total_harga`, `tanggal_tr
 --
 
 CREATE TABLE `users` (
-  `Id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `Username` varchar(200) NOT NULL,
   `Email` varchar(200) NOT NULL,
   `Age` int(11) NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Id`, `Username`, `Email`, `Age`, `Password`, `gambar`) VALUES
+INSERT INTO `users` (`id_user`, `Username`, `Email`, `Age`, `Password`, `gambar`) VALUES
 (29, 'a', 'a', 10, 'a', 'no-image.jpg'),
 (30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg');
 
@@ -98,13 +98,13 @@ INSERT INTO `users` (`Id`, `Username`, `Email`, `Age`, `Password`, `gambar`) VAL
 -- Indexes for table `tiket`
 --
 ALTER TABLE `tiket`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_tiket`);
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_transaksi`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_tiket` (`id_tiket`);
 
@@ -112,7 +112,7 @@ ALTER TABLE `transaksi`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -122,19 +122,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tiket` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
@@ -144,8 +144,8 @@ ALTER TABLE `users`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`Id`),
-  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_tiket`) REFERENCES `tiket` (`id`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_tiket`) REFERENCES `tiket` (`id_tiket`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

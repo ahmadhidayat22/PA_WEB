@@ -216,27 +216,27 @@ while ($record = mysqli_fetch_assoc($result)) {
                             <?php foreach ($user as $sr) : ?>
 
                                 <tr>
-                                    <td><img src="../img/<?= $sr["gambar"]?>" alt="" width="40px"></td>
+                                    <td width="10%"><img src="../img/<?= $sr["gambar"]?>" alt="" width="40px"></td>
                                     <td><?= $sr["Username"] ?></td>
                                     <td><?= $sr["Email"] ?></td>
                                     <td><?= $sr["Age"] ?></td>
                 
 
-                                    <td width="15%">
+                                    <td width="25%">
 
-                                        <a href="user-cart.php?id=<?= $sr['Id'] ?>">
+                                        <a href="user-cart.php?id=<?= $sr['id_user']?>">
 
     
-                                            <button type="submit" id="cart" data-id="<?= $sr['Id']?>" style="background-color:rgb(22, 143, 173)"><i class="bi bi-search"></i> Cart</button>
+                                            <button type="submit" id="cart" data-id="<?= $sr['id_user']?>" style="background-color:rgb(22, 143, 173)"><i class="bi bi-search"></i> Cart</button>
                                         </a>
                                         
-                                        <a href="crud/update.php?id=<?= $sr['Id'] ?>">
+                                        <a href="crud/update.php?id=<?= $sr['id_user'] ?>">
 
-                                            <button type="submit" id="update" data-id="<?= $sr['Id']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
+                                            <button type="submit" id="update" data-id="<?= $sr['id_user']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
                                         </a>
                                         
 
-                                        <a href="crud/delete.php?id=<?= $sr['Id'] ?>">
+                                        <a href="crud/delete.php?id=<?= $sr['id_user'] ?>">
                                             <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
                                         </a>
                                     </td>

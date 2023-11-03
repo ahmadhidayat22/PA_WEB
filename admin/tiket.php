@@ -274,7 +274,7 @@ if (isset($_POST['set'])){
                             <?php foreach ($tiket as $tk) : ?>
 
                                 <tr>
-                                    <td><?= $tk["id"] ?></td>
+                                    <td><?= $tk["id_tiket"] ?></td>
                                     <td><?= $tk["asal"] ?></td>
                                     <td><?= $tk["tujuan"] ?></td>
                                     <td><?= $tk["tanggal_berangkat"] ?></td>
@@ -283,13 +283,13 @@ if (isset($_POST['set'])){
 
                                     <td width="15%">
 
-                                        <a href="crud/update.php?id=<?= $tk['id'] ?>">
+                                        <a href="crud/update.php?id=<?= $tk['id_tiket'] ?>">
 
-                                            <button type="submit" id="update" data-id="<?= $tk['id']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
+                                            <button type="submit" id="update" data-id="<?= $tk['id_tiket']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
                                         </a>
                                         
 
-                                        <a href="crud/delete.php?id=<?= $tk['id'] ?>">
+                                        <a href="crud/delete.php?id=<?= $tk['id_tiket'] ?>">
                                             <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
                                         </a>
                                     </td>

@@ -122,7 +122,7 @@ require '../koneksi.php'
                 </label>
             </div>
 
-            
+
             <div class="wrapper">
                 <div class="header">
                     <p>Dashboard</p>
@@ -132,7 +132,7 @@ require '../koneksi.php'
 
                     <div class="card-list">
                         <div class="containt">
-                        <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi;");
+                            <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi;");
                             $row = mysqli_fetch_array($result);
                             echo "
                                 <div class='left-contain'>
@@ -183,7 +183,7 @@ require '../koneksi.php'
 
                     <div class="card-list">
                         <div class="containt">
-                        <?php $result = mysqli_query($conn, "SELECT *, COUNT(*) AS numrows FROM tiket ");
+                            <?php $result = mysqli_query($conn, "SELECT *, COUNT(*) AS numrows FROM tiket ");
                             $row = mysqli_fetch_array($result);
                             echo "
                                 <div class='left-contain'>
@@ -209,10 +209,12 @@ require '../koneksi.php'
 
                     <div class="card-list">
                         <div class="containt">
-                            
-                        <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi WHERE EXTRACT(DAY FROM tanggal_transaksi)  = EXTRACT(DAY FROM NOW())");
+
+                            <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi WHERE EXTRACT(DAY FROM tanggal_transaksi)  = EXTRACT(DAY FROM NOW())");
+
                             $row = mysqli_fetch_array($result);
-                            echo "
+                            if ($row['numrows'] != NULL) {
+                                echo "
                                 <div class='left-contain'>
                                 <h3>Rp " . $row['numrows'] . "</h3>
                                 <p>Sales Today</p>
@@ -220,11 +222,20 @@ require '../koneksi.php'
                                 </div>
                                 
                                 ";
+                            } else {
+                                echo "
+                                <div class='left-contain'>
+                                <h3>Rp 0</h3>
+                                <p>Sales Today</p>
+                
+                                </div>
+                                
+                                ";
+                            }
                             ?>
                             <div class="icon">
                                 <i class="bi bi-cash"></i>
                             </div>
-
                         </div>
                         <div class="details details4">
                             <p>More info</p>

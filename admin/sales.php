@@ -1,9 +1,24 @@
+<?php
+require '../koneksi.php';
+
+$result = mysqli_query($conn, 'SELECT id_transaksi,tanggal_transaksi,total_harga,Username FROM transaksi INNER JOIN users ON transaksi.id_user = users.id_user ');
+
+$sales = [];
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $sales[] = $row;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/tiket.css?v=1.1">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -24,8 +39,9 @@
         }
     </style>
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
         <div class="sidebar">
             <div class="header">
                 <a href="#">
@@ -104,6 +120,62 @@
                     <div id="hamburger"></div>
                 </label>
             </div>
+            <div class="wrapper">
+                <div class="header">
+                    <p>Sales History</p>
+                </div>
+
+                <div class="isi">
+                    
+                    <div class="neck-content">
+                        <span>
+                            <form action="" method="post">
+
+                                <label for="">Show</label>
+                                <select id="entries" name="entries">
+                                    <option value="10">1</option>
+                                    <option value="20">2</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <label for="">entries</label>
+                                <button type="submit" name="set">set</button>
+                            </form>
+                        </span>
+
+                        <span>
+
+                            <label for="">Search: </label>
+                            <input type="text">
+                        </span>
+                    </div>
+
+                    <div class="tabel-content">
+                        <table>
+                            <tr>
+                                <th>Transaksi ID</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Nama Buyer</th>
+                                <th>Total Harga</th>
+                            </tr>
+                            <?php foreach ($sales as $sl) : ?>
+                                <tr>
+                                    <td><?=$sl['id_transaksi'] ?></td>
+                                    <td><?=$sl['tanggal_transaksi'] ?></td>
+                                    <td><?=$sl['Username'] ?></td>
+                                    <td><?=$sl['total_harga'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            
+
+                        </table>
+                    </div>
+                    <div class="info">
+                        <p>Showing 1 to 10</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
 
@@ -111,4 +183,5 @@
         <script src="script.js"></script>
 
 </body>
+
 </html>
