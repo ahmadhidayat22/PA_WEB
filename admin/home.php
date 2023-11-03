@@ -1,5 +1,5 @@
 <?php
-require '../server.php'
+require '../koneksi.php'
 
 
 
@@ -13,7 +13,8 @@ require '../server.php'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css?v=1.1">
+    <link rel="stylesheet" href="../css/admin.css?v=1">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -131,11 +132,17 @@ require '../server.php'
 
                     <div class="card-list">
                         <div class="containt">
-                            <div class="left-containt">
-                                <h3>Rp 999.999</h3>
+                        <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi;");
+                            $row = mysqli_fetch_array($result);
+                            echo "
+                                <div class='left-contain'>
+                                <h3>Rp " . $row['numrows'] . "</h3>
                                 <p>Total Sales</p>
-                            </div>
-
+                
+                                </div>
+                                
+                                ";
+                            ?>
 
                             <div class="icon">
                                 <i class="bi bi-cart-fill"></i>
@@ -176,14 +183,22 @@ require '../server.php'
 
                     <div class="card-list">
                         <div class="containt">
-                            <div class="left-containt">
-                                <h3>3</h3>
-                                <p>Total of Products</p>
-                            </div>
-                            <div class="icon">
-                                <i class="bi bi-upc"></i>
+                        <?php $result = mysqli_query($conn, "SELECT *, COUNT(*) AS numrows FROM tiket ");
+                            $row = mysqli_fetch_array($result);
+                            echo "
+                                <div class='left-contain'>
+                                <h3>" . $row['numrows'] . "</h3>
+                                <p>Total of Ticket</p>
+                
+                                </div>
+                                
+                                ";
+                            ?>
 
+                            <div class="icon">
+                                <i class="bi bi-people"></i>
                             </div>
+
 
                         </div>
                         <div class="details details3">
@@ -194,10 +209,18 @@ require '../server.php'
 
                     <div class="card-list">
                         <div class="containt">
-                            <div class="left-containt">
-                                <h3>3</h3>
+                            
+                        <?php $result = mysqli_query($conn, "SELECT SUM(total_harga) AS numrows FROM transaksi WHERE EXTRACT(DAY FROM tanggal_transaksi)  = EXTRACT(DAY FROM NOW())");
+                            $row = mysqli_fetch_array($result);
+                            echo "
+                                <div class='left-contain'>
+                                <h3>Rp " . $row['numrows'] . "</h3>
                                 <p>Sales Today</p>
-                            </div>
+                
+                                </div>
+                                
+                                ";
+                            ?>
                             <div class="icon">
                                 <i class="bi bi-cash"></i>
                             </div>

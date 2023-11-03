@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 05:14 PM
+-- Generation Time: Nov 03, 2023 at 03:42 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,8 +41,31 @@ CREATE TABLE `tiket` (
 --
 
 INSERT INTO `tiket` (`id`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`, `harga`) VALUES
-(1, 'surabaya', 'balikpapan', '2023-10-30', '2023-10-30', 0),
-(2, 'surabaya', 'balikpapan', '2023-10-30', '2023-10-31', 25000);
+(6, 'awdwad', 'awd24awd', '2023-11-02', '2023-11-02', 214124),
+(8, '123', '1234', '2023-11-03', '2023-11-03', 235235),
+(9, 'penajam', 'balikpapan', '2023-11-03', '2023-11-03', 60000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id` int(100) NOT NULL,
+  `id_user` int(100) NOT NULL,
+  `id_tiket` int(100) NOT NULL,
+  `total_harga` int(255) NOT NULL,
+  `tanggal_transaksi` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `id_user`, `id_tiket`, `total_harga`, `tanggal_transaksi`) VALUES
+(3, 29, 8, 1230000, '2023-11-04'),
+(4, 30, 9, 60000, '2023-11-03');
 
 -- --------------------------------------------------------
 
@@ -64,7 +87,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `Username`, `Email`, `Age`, `Password`, `gambar`) VALUES
-(29, 'a', 'a', 10, 'a', 'default.jpg');
+(29, 'a', 'a', 10, 'a', 'no-image.jpg'),
+(30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg');
 
 --
 -- Indexes for dumped tables
@@ -75,6 +99,14 @@ INSERT INTO `users` (`Id`, `Username`, `Email`, `Age`, `Password`, `gambar`) VAL
 --
 ALTER TABLE `tiket`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_tiket` (`id_tiket`);
 
 --
 -- Indexes for table `users`
@@ -90,13 +122,30 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`Id`),
+  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_tiket`) REFERENCES `tiket` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
