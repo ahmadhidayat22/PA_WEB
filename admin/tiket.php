@@ -1,5 +1,5 @@
 <?php
-require '../server.php';
+require '../koneksi.php';
 
 if (isset($_POST['tambah'])) {
     $asal = $_POST['asal'];
@@ -39,7 +39,11 @@ if (isset($_POST['tambah'])) {
     ";
     }
 }
-
+$entries = 1;
+if (isset($_POST['set'])){
+    $entries = $_POST['entries']; 
+    
+}
 $result = mysqli_query($conn, "select * from tiket");
 
 $tiket = [];
@@ -48,7 +52,10 @@ while ($record = mysqli_fetch_assoc($result)) {
     $tiket[] = $record;
 }
 
-
+if (isset($_POST['set'])){
+    $entries = $_POST['entries']; 
+    
+}
 ?>
 
 
@@ -58,7 +65,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tiket.css?v=1.1">
+    <link rel="stylesheet" href="../css/tiket.css?v=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -167,33 +174,37 @@ while ($record = mysqli_fetch_assoc($result)) {
                     <div class="header-content">
                         <h3>Add New Tiket</h3>
                     </div>
-                    <button id="close"><i class="bi bi-x"></i></button>
+                    <div id="close"><i class="bi bi-x"></i></div>
+
                     <div class="isi-kontent">
 
                         <form action="" method="post">
-                            <table border="1">
+                            <table>
                                 <tr>
                                     <td><label for="">Asal</label></td>
-                                    <td><input type="text" name="asal"></td>
+                                    <td><input type="text" name="asal" autocomplete="off" required></td>
                                     <td><label for="">Tanggal Berangkat</label></td>
-                                    <td><input type="date" name="tgl_berangkat" id="datemin"></td>
+                                    <td><input type="date" name="tgl_berangkat" id="datemin" required></td>
                                 </tr>
                                 <tr>
                                     <td><label for="">Tujuan</label> </td>
-                                    <td><input type="text" name="tujuan"></td>
+                                    <td><input type="text" name="tujuan" autocomplete="off" required></td>
                                     <td><label for="">Tanggal Tiba</label></td>
-                                    <td><input type="date" name="tgl_tiba" id="datemin1"></td>
+                                    <td><input type="date" name="tgl_tiba" id="datemin1" required></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><label for="">Harga</label></td>
-                                    <td><input type="number" name="harga"></td>
+                                    <td><input type="number" name="harga" autocomplete="off" required></td>
                                 </tr>
 
 
                             </table>
+                            <div class="footer-content">
 
-                            <button type="submit" name="tambah">Add</button>
+                                <button id="clos"><i class="bi bi-x"></i> Close</button>
+                                <button type="submit" name="tambah"><i class="bi bi-floppy2-fill"></i> Save</button>
+                            </div>
 
                         </form>
                     </div>
@@ -201,6 +212,18 @@ while ($record = mysqli_fetch_assoc($result)) {
 
                 </div>
             </div>
+<!-- 
+            <div class="modal" id="mymodal-update">
+                <div class="modal-content" id="1">
+                    <div class="header-content">
+                        <h3>Update Tiket</h3>
+                    </div>
+                    <div id="close"><i class="bi bi-x"></i></div>
+                    
+                    
+
+                </div>
+            </div> -->
 
 
 
@@ -216,16 +239,18 @@ while ($record = mysqli_fetch_assoc($result)) {
                     </div>
                     <div class="neck-content">
                         <span>
+                        <form action="" method="post">
 
                             <label for="">Show</label>
                             <select id="entries" name="entries">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
+                                <option value="10" >1</option>
+                                <option value="20" >2</option>
+                                <option value="50" >50</option>
+                                <option value="100" >100</option>
                             </select>
                             <label for="">entries</label>
-
+                            <button type="submit" name="set">set</button>
+                        </form>
                         </span>
 
                         <span>
@@ -249,7 +274,7 @@ while ($record = mysqli_fetch_assoc($result)) {
                             <?php foreach ($tiket as $tk) : ?>
 
                                 <tr>
-                                    <td><?= $tk["id"] ?></td>
+                                    <td><?= $tk["id_tiket"] ?></td>
                                     <td><?= $tk["asal"] ?></td>
                                     <td><?= $tk["tujuan"] ?></td>
                                     <td><?= $tk["tanggal_berangkat"] ?></td>
@@ -257,14 +282,25 @@ while ($record = mysqli_fetch_assoc($result)) {
                                     <td><?= $tk["harga"] ?></td>
 
                                     <td width="15%">
-                                        <button><i class="bi bi-pencil-fill"></i> Edit</button>
-                                        <button><i class="bi bi-trash3-fill"></i> Delete</button>
+
+                                        <a href="crud/update.php?id=<?= $tk['id_tiket'] ?>">
+
+                                            <button type="submit" id="update" data-id="<?= $tk['id_tiket']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
+                                        </a>
+                                        
+
+                                        <a href="crud/delete.php?id=<?= $tk['id_tiket'] ?>">
+                                            <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
 
 
                         </table>
+                    </div>
+                    <div class="info">
+                        <p>Showing 1 to 10</p>
                     </div>
                 </div>
             </div>
@@ -278,12 +314,23 @@ while ($record = mysqli_fetch_assoc($result)) {
 
         <script src="script.js"></script>
         <script>
+            
+            $('#update').click(function() {
+              
+                $('#mymodal-update').css('display', 'block');
+
+            });
+            
             $('#add').click(function() {
-                // alert('Please');
+              
                 $('#mymodal').css('display', 'block');
 
             });
             $('#close').click(function() {
+                $('#mymodal').css('display', 'none');
+
+            });
+            $('#clos').click(function() {
                 $('#mymodal').css('display', 'none');
 
             });

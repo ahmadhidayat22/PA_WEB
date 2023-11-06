@@ -1,13 +1,35 @@
 <?php
 require '../koneksi.php';
 
-$result = mysqli_query($conn, 'SELECT id_transaksi,tanggal_transaksi,total_harga,Username FROM transaksi INNER JOIN users ON transaksi.id_user = users.id_user ');
+$id = $_GET['id'];
 
-$sales = [];
+$result_tiket =  mysqli_query($conn, "select * from tiket");
+$result_user = mysqli_query($conn, "select * from users where id_user = '$id'");
+$result_join = mysqli_query($conn, "SELECT id_transaksi,id_user,asal,tujuan,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id_tiket = transaksi.id_tiket WHERE id_user = '$id'");
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $sales[] = $row;
+$tiket = [];
+$user = [];
+$res = [];
+while ($record = mysqli_fetch_assoc($result_user)) {
+    $user[] = $record;
 }
+while ($record = mysqli_fetch_assoc($result_join)) {
+    $res[] = $record;
+}
+while ($record = mysqli_fetch_assoc($result_tiket)) {
+    $tiket[] = $record;
+}
+
+
+
+$user = $user[0];
+// $trans = $trans[0];
+
+
+
+
+
+
 
 
 ?>
@@ -18,7 +40,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/tiket.css?v=1.1">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -32,7 +53,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <title>Tiket List</title>
 
     <style>
-        .container .sidebar .main .list-item:nth-child(3) {
+        .container .sidebar .main .list-item:nth-child(5) {
             background-color: rgb(77, 148, 148);
 
 
@@ -44,7 +65,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="container">
         <div class="sidebar">
             <div class="header">
-                <a href="#">
+                <a href="home.php">
 
                     <div class="list-item">
                         <span class="description-header">Booking Site</span>
@@ -104,7 +125,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                     <a href="tiket.php">
                         <i class="bi bi-upc"></i>
-                        <span class="description">Products</span>
+                        <span class="description">Ticket</span>
                     </a>
                 </div>
 
@@ -113,6 +134,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
 
         </div>
+
         <div class="main-content">
             <div id="menu-button">
                 <input type="checkbox" name="" id="menu-checkbox">
@@ -120,9 +142,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <div id="hamburger"></div>
                 </label>
             </div>
+
             <div class="wrapper">
                 <div class="header">
-                    <p>Sales History</p>
+                    <p><?= $user["Username"] ?>`s Cart</p>
                 </div>
 
                 <div class="isi">
@@ -151,37 +174,85 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </div>
 
                     <div class="tabel-content">
+
+
                         <table>
                             <tr>
-                                <th>Transaksi ID</th>
-                                <th>Tanggal Transaksi</th>
-                                <th>Nama Buyer</th>
+                                <th>Rute</th>
+                                <th>tanggal transaksi</th>
                                 <th>Total Harga</th>
+
+                                <th>Tools</th>
                             </tr>
-                            <?php foreach ($sales as $sl) : ?>
+                            <?php foreach ($res as $tr) : ?>
+
                                 <tr>
-                                    <td><?=$sl['id_transaksi'] ?></td>
-                                    <td><?=$sl['tanggal_transaksi'] ?></td>
-                                    <td><?=$sl['Username'] ?></td>
-                                    <td><?=$sl['total_harga'] ?></td>
+
+                                    <td><?= $tr["asal"] ?> - <?= $tr["tujuan"] ?></td>
+                                    <td><?= $tr["tanggal_transaksi"] ?></td>
+                                    <td><?= $tr["total_harga"] ?></td>
+
+                                    <td width="15%">
+
+
+
+                                        <a href="delete-cart.php?id=<?= $tr['id_transaksi'] ?>">
+                                            <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
-                            
-
-                        </table>
                     </div>
                     <div class="info">
                         <p>Showing 1 to 10</p>
                     </div>
                 </div>
-
             </div>
         </div>
 
 
 
-        <script src="script.js"></script>
+
+    </div>
+    </div>
+
+
+    <script>
+        $('#update').click(function() {
+
+            $('#mymodal-update').css('display', 'block');
+
+        });
+
+        $('#add').click(function() {
+
+            $('#mymodal').css('display', 'block');
+
+        });
+        $('#close').click(function() {
+            $('#mymodal').css('display', 'none');
+
+        });
+        $('#clos').click(function() {
+            $('#mymodal').css('display', 'none');
+
+        });
+        let modal = $('#mymodal')
+        $(window).click(function(event) {
+            console.log(modal)
+            if (event.target == modal) {
+                alert('p');
+
+                $('#mymodal').css('display', 'none');
+            }
+        });
+        datemin.min = new Date().toISOString().split("T")[0];
+        datemin1.min = new Date().toISOString().split("T")[0];
+    </script>
+
+
 
 </body>
+
 
 </html>

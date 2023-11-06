@@ -15,7 +15,6 @@
 .sidebar{
     background-color: #111827;
     width: 260px;
-    /* padding: 24px; */
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -56,8 +55,6 @@
     align-items: center;
     justify-content: center;
     padding: 5px 8px;
-    /* border-radius: 8px;
-    background-color: rgb(57, 73, 145); */
     height: 40px;
     box-sizing: border-box;
   
@@ -80,7 +77,6 @@
 }
 
 .sidebar .main .list-item{
-    /* margin-top: 20px; */
     padding: 12px 15px;
     display: flex;
     flex-direction: row;
@@ -295,22 +291,21 @@
     font-style: medium;
     font-weight: 400;
     font-size: 20px;
-    /* border: 1px solid red; */
-
+    
 }
 
 .middle{
-    /* border: 1px solid red; */
+  
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     margin-top: 30px;
 
 }
 
 .middle .card-list{
-    /* border: 1px solid red; */
+ 
     width: 300px;
     display: flex;
     flex-direction: column;
