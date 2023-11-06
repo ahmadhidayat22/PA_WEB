@@ -12,34 +12,69 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="head">
+    <section class="landing">
         <div class="nav">
-            <div class="nav-1"> 
-                <div class="openmenu"><i class="fa-solid fa-bars-staggered"></i></div>   
-                <div class="night"><i class="fa-solid fa-moon"></i></div>                          
-                <div class="light"><i class="fa-solid fa-sun"></i></div>                          
+            <div class="nav-1">
+                <img src="img/logo1.png" alt="">
             </div>
-            <div class="nav-2">
-                <img src="img/logo.png" alt="">
+            <div class="nav-2"> 
+                <a href="#">Tentang Kami</a>
+                <a href="#home">Home</a>
+                <a href="#body">Tiket</a>
+                <a href="#">Kontak</a>
             </div>
             <div class="nav-3">
-                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></i></i></a>
-                <a href=""><i class="fa-regular fa-user"></i></a>
-                
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href="#"><i class="fa-solid fa-moon" id="toggledark"></i></a>   
+                <a href="#" id="hamburger"><i class="fa-solid fa-bars-staggered"></i></a> 
             </div>
         </div>
         <section class="hero" id="home">
             <main class="content">
                 <h1>Taklukkan Ombak Bersama Kami: Pesan Tiket Kapal Online Sekarang!</h1>
                 <h3>Tentukan dan pesan tiket kapal anda</h3>
-                <a href="" class="cta">Beli Sekarang!</a>
+                <a href="#body" class="cta">Beli Sekarang!</a>
             </main>
         </section>
-    </div>
-    <div class="body">
-
-    </div>
-    <script src="js/pa.js"></script>
+    </section>
+    <section class="body" id="body">
+        <div class="tiket">
+            <div class="card">
+                <div class="about">
+                    <h1>Pencarian Tiket</h1>
+                    <form action="">
+                        <table class="table">
+                            <tr>
+                                <th><label for="">Asal Anda <i class="fa-solid fa-ship"></i> : </label></th>
+                                <th><label for="">Tujuan Anda <i class="fa-solid fa-ship"></i> : </label></th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="asal" id=""></td>
+                                <td><input type="text" name="tujuan" id=""></td>
+                            </tr>
+                            <tr>
+                                <th><label for="">Tanggal Berangkat <i class="fa-solid fa-calendar-days"></i> : </label></th>
+                                <th><label for="">Tanggal Tiba <i class="fa-solid fa-calendar-days"></i> : </label></th>
+                            </tr>
+                            <tr>
+                                <td><input type="date" name="berangkat" id=""></td>
+                                <td><input type="date" name="tiba" id=""></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2"><button class="pesan" type="submit" name="pesan">Cari Tiket</button></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <i class="fa-solid fa-phone"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
