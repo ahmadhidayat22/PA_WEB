@@ -1,61 +1,60 @@
 <?php
 require '../koneksi.php';
 
+
 if (isset($_POST['tambah'])) {
-    $asal = $_POST['asal'];
-    $tujuan = $_POST['tujuan'];
-    $tgl_berangkat = $_POST['tgl_berangkat'];
-    $tgl_tiba = $_POST['tgl_tiba'];
-    $harga = $_POST['harga'];
+    $asal = htmlspecialchars($_POST['asal']);
+    $tujuan = htmlspecialchars($_POST['tujuan']);
+    $tgl_berangkat = htmlspecialchars($_POST['tgl_berangkat']);
+    $tgl_tiba = htmlspecialchars($_POST['tgl_tiba']);
+    $harga = htmlspecialchars($_POST['harga']);
 
+    if (preg_match('/^[A-Za-z]+$/', $asal) && preg_match('/^[A-Za-z]+$/', $tujuan)) {
+        if ($asal != $tujuan) {
+            $result = mysqli_query($conn, "insert into tiket values ('','$asal','$tujuan','$tgl_berangkat','$tgl_tiba','$harga')");
 
-
-    if ($asal != $tujuan) {
-        $result = mysqli_query($conn, "insert into tiket values ('','$asal','$tujuan','$tgl_berangkat','$tgl_tiba','$harga')");
-
-        if ($result) {
-            echo "
+            if ($result) {
+                echo "
             <script>
             alert('Data Berhasil Ditambahkan!');
             document.location.href = 'tiket.php';
             </script>
-        ";
-        } else {
-            echo "
+            ";
+            } else {
+                echo "
                 <script>
                 alert('Data Gagal Ditambahkan!');
                 document.location.href = 'tiket.php';
 
                 </script>
             ";
-        }
-    } else {
-        echo "
+            }
+        } else {
+            echo "
         <script>
         alert('asal dan tujuan tidak boleh sama!');
         document.location.href = 'tiket.php';
 
         </script>
-    ";
+        ";
+        }
+    } else {
+        echo "
+        <script>
+        alert('pastikan input asal dan tujuan berupa huruf');
+        </script>
+        ";
     }
 }
-$entries = 1;
-if (isset($_POST['set'])){
-    $entries = $_POST['entries']; 
-    
-}
-$result = mysqli_query($conn, "select * from tiket");
+
 
 $tiket = [];
 
-while ($record = mysqli_fetch_assoc($result)) {
-    $tiket[] = $record;
-}
 
-if (isset($_POST['set'])){
-    $entries = $_POST['entries']; 
-    
-}
+// if (isset($_POST['set'])) {
+//     $entries = $_POST['entries'];
+// }
+// 
 ?>
 
 
@@ -65,7 +64,7 @@ if (isset($_POST['set'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tiket.css?v=1">
+    <link rel="stylesheet" href="../css/tiket.css?v=1.2">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- font -->
@@ -89,77 +88,7 @@ if (isset($_POST['set'])){
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                <a href="#">
-
-                    <div class="list-item">
-                        <span class="description-header">Booking Site</span>
-                    </div>
-
-                </a>
-
-                <div class="info-user">
-                    <div class="picture"></div>
-                    <div class="content" id="content">
-                        <h5>ADMIN</h5>
-
-                        <div class="online">
-                            <div class="info"></div>
-                            <p>online</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="main">
-                <div class="head-list">
-                    <span>REPORTS</span>
-                </div>
-                <div class="list-item">
-
-                    <a href="home.php">
-                        <i class="bi bi-speedometer2"></i>
-                        <span class="description">Dashboard</span>
-                    </a>
-                </div>
-                <div class="list-item">
-
-                    <a href="sales.php">
-                        <i class="bi bi-cash"></i>
-                        <span class="description">Sales</span>
-                    </a>
-                </div>
-
-                <div class="head-list">
-                    <span>MANAGE</span>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="users.php">
-                        <i class="bi bi-people"></i>
-                        <span class="description">Users</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="tiket.php">
-                        <i class="bi bi-upc"></i>
-                        <span class="description">Ticket</span>
-                    </a>
-                </div>
-
-
-
-            </div>
-
-        </div>
+    <?php @include "../includes/sidebar.php" ?>
 
         <div class="main-content">
             <div id="menu-button">
@@ -195,7 +124,7 @@ if (isset($_POST['set'])){
 
                                 <tr>
                                     <td><label for="">Harga</label></td>
-                                    <td><input type="number" name="harga" autocomplete="off" required></td>
+                                    <td><input type="number" name="harga" autocomplete="off" required min='1' max='9999999'></td>
                                 </tr>
 
 
@@ -212,7 +141,7 @@ if (isset($_POST['set'])){
 
                 </div>
             </div>
-<!-- 
+            <!-- 
             <div class="modal" id="mymodal-update">
                 <div class="modal-content" id="1">
                     <div class="header-content">
@@ -229,7 +158,7 @@ if (isset($_POST['set'])){
 
             <div class="wrapper">
                 <div class="header">
-                    <p>Ticket</p>
+                    <p>Ticket List</p>
                 </div>
 
                 <div class="isi">
@@ -238,25 +167,28 @@ if (isset($_POST['set'])){
 
                     </div>
                     <div class="neck-content">
+                        <!-- <span>
+                            <form action="" method="POST">
+
+                                <label for="entries">Show</label>
+                                <select id="entries" name="entries" onchange="">
+                                    <option value="10">1</option>
+                                    <option value="20">2</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <label for="">entries</label>
+                                <button type="submit" name="set">set</button>
+                            </form>
+                        </span> -->
+
                         <span>
-                        <form action="" method="post">
+                            <form action="" method="post">
 
-                            <label for="">Show</label>
-                            <select id="entries" name="entries">
-                                <option value="10" >1</option>
-                                <option value="20" >2</option>
-                                <option value="50" >50</option>
-                                <option value="100" >100</option>
-                            </select>
-                            <label for="">entries</label>
-                            <button type="submit" name="set">set</button>
-                        </form>
-                        </span>
+                                <label for="">Search: </label>
+                                <input type="search" name="search" id="search">
 
-                        <span>
-
-                            <label for="">Search: </label>
-                            <input type="text">
+                            </form>
                         </span>
                     </div>
 
@@ -271,37 +203,70 @@ if (isset($_POST['set'])){
                                 <th>Harga</th>
                                 <th>Tools</th>
                             </tr>
-                            <?php foreach ($tiket as $tk) : ?>
+                            <?php
 
-                                <tr>
-                                    <td><?= $tk["id_tiket"] ?></td>
-                                    <td><?= $tk["asal"] ?></td>
-                                    <td><?= $tk["tujuan"] ?></td>
-                                    <td><?= $tk["tanggal_berangkat"] ?></td>
-                                    <td><?= $tk["tanggal_tiba"] ?></td>
-                                    <td><?= $tk["harga"] ?></td>
+                            try {
+                                $keyword = "";
+                                if (isset($_POST['search'])) {
 
-                                    <td width="15%">
+                                    $keyword = $_POST['search'];
+                                    $result = mysqli_query($conn, "select * from tiket where asal like '%$keyword%' or tujuan like '%$keyword%'");
+                                    while ($record = mysqli_fetch_assoc($result)) {
+                                        $tiket[] = $record;
+                                    }
+                                    // echo $keyword;
+                                } else {
+                                    $result = mysqli_query($conn, "SELECT * FROM tiket");
+                                    while ($record = mysqli_fetch_assoc($result)) {
+                                        $tiket[] = $record;
+                                    }
+                                }
+                                //     while ($record = mysqli_fetch_assoc($result)) {
+                                //     $tiket[] = $record;
+                                // }
 
-                                        <a href="crud/update.php?id=<?= $tk['id_tiket'] ?>">
+                                foreach ($tiket as $tk) {
 
-                                            <button type="submit" id="update" data-id="<?= $tk['id_tiket']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
-                                        </a>
+                                    echo "
                                         
+                                            <tr>
+                                            <td>" . $tk['id_tiket'] . "</td>
+                                            <td>" . $tk['asal'] . "</td>
+                                            <td>" . $tk['tujuan'] . "</td>
+                                            <td>" . $tk['tanggal_berangkat'] . "</td>
+                                            <td>" . $tk['tanggal_tiba'] . "</td>
+                                            <td>" . $tk['harga'] . "</td>
 
-                                        <a href="crud/delete.php?id=<?= $tk['id_tiket'] ?>">
-                                            <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                                            <td width='15%'>
 
+                                                <a href='update.php?id=" . $tk['id_tiket'] . "'>
+
+                                                    <button type='submit' id='update' data-id='" . $tk['id_tiket'] . "'><i class='bi bi-pencil-fill'></i> Edit</button>
+                                                </a>
+
+
+                                                <a href='delete.php?id=" . $tk['id_tiket'] . "'>
+                                                    <button style='background-color:rgb(177, 7, 7)'><i class='bi bi-trash3-fill'></i> Delete</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        
+                                        ";
+                                }
+                                $keyword = "";
+                            } catch (PDOException $err) {
+                                echo $err->getMessage();
+                            }
+
+
+
+                            ?>
 
                         </table>
                     </div>
-                    <div class="info">
+                    <!-- <div class="info">
                         <p>Showing 1 to 10</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -314,15 +279,14 @@ if (isset($_POST['set'])){
 
         <script src="script.js"></script>
         <script>
-            
             $('#update').click(function() {
-              
+
                 $('#mymodal-update').css('display', 'block');
 
             });
-            
+
             $('#add').click(function() {
-              
+
                 $('#mymodal').css('display', 'block');
 
             });
@@ -336,7 +300,7 @@ if (isset($_POST['set'])){
             });
             let modal = $('#mymodal')
             $(window).click(function(event) {
-                console.log(modal)
+                // console.log(modal)
                 if (event.target == modal) {
                     alert('p');
 

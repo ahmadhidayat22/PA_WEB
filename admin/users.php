@@ -46,77 +46,8 @@ while ($record = mysqli_fetch_assoc($result)) {
 </head>
 <body>
 <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                <a href="#">
 
-                    <div class="list-item">
-                        <span class="description-header">Booking Site</span>
-                    </div>
-
-                </a>
-
-                <div class="info-user">
-                    <div class="picture"></div>
-                    <div class="content" id="content">
-                        <h5>ADMIN</h5>
-
-                        <div class="online">
-                            <div class="info"></div>
-                            <p>online</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="main">
-                <div class="head-list">
-                    <span>REPORTS</span>
-                </div>
-                <div class="list-item">
-
-                    <a href="home.php">
-                        <i class="bi bi-speedometer2"></i>
-                        <span class="description">Dashboard</span>
-                    </a>
-                </div>
-                <div class="list-item">
-
-                    <a href="sales.php">
-                        <i class="bi bi-cash"></i>
-                        <span class="description">Sales</span>
-                    </a>
-                </div>
-
-                <div class="head-list">
-                    <span>MANAGE</span>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="users.php">
-                        <i class="bi bi-people"></i>
-                        <span class="description">Users</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="tiket.php">
-                        <i class="bi bi-upc"></i>
-                        <span class="description">Products</span>
-                    </a>
-                </div>
-
-
-
-            </div>
-
-        </div>
+    <?php @include "../includes/sidebar.php" ?>
 
 
         <div class="main-content">
@@ -180,7 +111,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 
                     </div>
                     <div class="neck-content">
-                        <span>
+                        <!-- <span>
                         <form action="" method="post">
 
                             <label for="">Show</label>
@@ -193,7 +124,7 @@ while ($record = mysqli_fetch_assoc($result)) {
                             <label for="">entries</label>
                             <button type="submit" name="set">set</button>
                         </form>
-                        </span>
+                        </span> -->
 
                         <span>
 
@@ -230,13 +161,8 @@ while ($record = mysqli_fetch_assoc($result)) {
                                             <button type="submit" id="cart" data-id="<?= $sr['id_user']?>" style="background-color:rgb(22, 143, 173)"><i class="bi bi-search"></i> Cart</button>
                                         </a>
                                         
-                                        <a href="crud/update.php?id=<?= $sr['id_user'] ?>">
-
-                                            <button type="submit" id="update" data-id="<?= $sr['id_user']?>"><i class="bi bi-pencil-fill"></i> Edit</button>
-                                        </a>
-                                        
-
-                                        <a href="crud/delete.php?id=<?= $sr['id_user'] ?>">
+                                   
+                                        <a href="delete-user.php?id=<?= $sr['id_user'] ?>">
                                             <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
                                         </a>
                                     </td>
@@ -246,9 +172,9 @@ while ($record = mysqli_fetch_assoc($result)) {
 
                         </table>
                     </div>
-                    <div class="info">
+                    <!-- <div class="info">
                         <p>Showing 1 to 10</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             

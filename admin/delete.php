@@ -3,14 +3,14 @@ include '../koneksi.php';
 
 $id = $_GET['id'];
 
-$result = mysqli_query($conn, "delete from transaksi where id_transaksi = '$id'");
+$result = mysqli_query($conn, "delete from tiket where id_tiket = '$id'");
 
 if ($result){
     echo
     "
     <script>
-    alert('Success');
-    window.location.href = 'users.php';
+    // alert('Success');
+    window.location.href = 'tiket.php';
 
     </script>
     ";
@@ -20,8 +20,12 @@ if ($result){
     "
     <script>
     alert('fail');
-    window.location.href = 'user-cart.php';
+    window.location.href = 'tiket.php';
 
     </script>
     ";  
 }
+
+
+
+?>

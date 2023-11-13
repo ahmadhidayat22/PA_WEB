@@ -1,6 +1,6 @@
 <?php
 // session_start();
-require '../../koneksi.php';
+require '../koneksi.php';
 
 $id = $_GET["id"];
 
@@ -15,7 +15,7 @@ $prd = $prd[0];
 
 
 if(isset($_POST['back'])){
-    header('Location:../tiket.php');
+    header('Location:tiket.php');
     exit();
 }else if(isset($_POST['change'])){
     $asal = $_POST['asal'];
@@ -34,7 +34,7 @@ if(isset($_POST['back'])){
             echo "
             <script>
             // alert('Data Berhasil Diubah!');
-            document.location.href = '../tiket.php';
+            document.location.href = 'tiket.php';
             </script>
         ";
         } else {
@@ -65,7 +65,8 @@ if(isset($_POST['back'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/tiket.css?v=1.2">
+    <link rel="stylesheet" href="../css/tiket.css?v=1.3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
     <!-- font -->
@@ -76,84 +77,14 @@ if(isset($_POST['back'])){
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-
-
     <title>Update</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                <a href="#">
 
-                    <div class="list-item">
-                        <span class="description-header">Booking Site</span>
-                    </div>
+    <?php @include "../includes/sidebar.php" ?>
 
-                </a>
-
-                <div class="info-user">
-                    <div class="picture"></div>
-                    <div class="content" id="content">
-                        <h5>ADMIN</h5>
-
-                        <div class="online">
-                            <div class="info"></div>
-                            <p>online</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="main">
-                <div class="head-list">
-                    <span>REPORTS</span>
-                </div>
-                <div class="list-item">
-
-                    <a href="home.php">
-                        <i class="bi bi-speedometer2"></i>
-                        <span class="description">Dashboard</span>
-                    </a>
-                </div>
-                <div class="list-item">
-
-                    <a href="sales.php">
-                        <i class="bi bi-cash"></i>
-                        <span class="description">Sales</span>
-                    </a>
-                </div>
-
-                <div class="head-list">
-                    <span>MANAGE</span>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="users.php">
-                        <i class="bi bi-people"></i>
-                        <span class="description">Users</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="tiket.php">
-                        <i class="bi bi-upc"></i>
-                        <span class="description">Ticket</span>
-                    </a>
-                </div>
-
-
-
-            </div>
-
-        </div>
 
         <div class="main-content">
             <div id="menu-button">
@@ -184,13 +115,13 @@ if(isset($_POST['back'])){
 
                         <tr>
                             <td><label for="">Harga</label></td>
-                            <td><input type="number" name="harga" autocomplete="off" value="<?= $prd["harga"] ?>"></td>
+                            <td><input type="number" name="harga" autocomplete="off" value="<?= $prd["harga"] ?>" min='1' max='9999999'></td>
                         </tr>
 
 
                     </table>
                     <div class="footer-content">
-                        <button type="submit" name="back"><i class="bi bi-x"></i>Back</button>
+                        <button type="submit" name="back"><i class="bi bi-arrow-left"></i>Back</button>
 
                         <button type="submit" name="change"><i class="bi bi-floppy2-fill"></i> Save</button>
                     </div>
@@ -205,6 +136,12 @@ if(isset($_POST['back'])){
 
         </div>
     </div>
+
+
+
+
+    <script src="script.js"></script>
+        
 
 
 </body>

@@ -17,7 +17,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tiket.css?v=1.1">
+    <link rel="stylesheet" href="../css/tiket.css?v=1.2">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -42,77 +42,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                <a href="#">
-
-                    <div class="list-item">
-                        <span class="description-header">Booking Site</span>
-                    </div>
-
-                </a>
-
-                <div class="info-user">
-                    <div class="picture"></div>
-                    <div class="content" id="content">
-                        <h5>ADMIN</h5>
-
-                        <div class="online">
-                            <div class="info"></div>
-                            <p>online</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="main">
-                <div class="head-list">
-                    <span>REPORTS</span>
-                </div>
-                <div class="list-item">
-
-                    <a href="home.php">
-                        <i class="bi bi-speedometer2"></i>
-                        <span class="description">Dashboard</span>
-                    </a>
-                </div>
-                <div class="list-item">
-
-                    <a href="sales.php">
-                        <i class="bi bi-cash"></i>
-                        <span class="description">Sales</span>
-                    </a>
-                </div>
-
-                <div class="head-list">
-                    <span>MANAGE</span>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="users.php">
-                        <i class="bi bi-people"></i>
-                        <span class="description">Users</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="tiket.php">
-                        <i class="bi bi-upc"></i>
-                        <span class="description">Products</span>
-                    </a>
-                </div>
+    <?php @include "../includes/sidebar.php" ?>
 
 
 
-            </div>
 
-        </div>
         <div class="main-content">
             <div id="menu-button">
                 <input type="checkbox" name="" id="menu-checkbox">
@@ -128,7 +62,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <div class="isi">
                     
                     <div class="neck-content">
-                        <span>
+                        <!-- <span>
                             <form action="" method="post">
 
                                 <label for="">Show</label>
@@ -141,7 +75,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                 <label for="">entries</label>
                                 <button type="submit" name="set">set</button>
                             </form>
-                        </span>
+                        </span> -->
 
                         <span>
 
@@ -160,8 +94,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </tr>
                             <?php foreach ($sales as $sl) : ?>
                                 <tr>
-                                    <td><?=$sl['id_transaksi'] ?></td>
-                                    <td><?=$sl['tanggal_transaksi'] ?></td>
+                                    <td width="10%"><?=$sl['id_transaksi'] ?></td>
+                                    <td width="30%"><?=$sl['tanggal_transaksi'] ?></td>
                                     <td><?=$sl['Username'] ?></td>
                                     <td><?=$sl['total_harga'] ?></td>
                                 </tr>

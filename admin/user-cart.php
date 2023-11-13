@@ -23,7 +23,7 @@ while ($record = mysqli_fetch_assoc($result_tiket)) {
 
 
 $user = $user[0];
-// $trans = $trans[0];
+
 
 
 
@@ -63,77 +63,8 @@ $user = $user[0];
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                <a href="home.php">
+    <?php @include "../includes/sidebar.php" ?>
 
-                    <div class="list-item">
-                        <span class="description-header">Booking Site</span>
-                    </div>
-
-                </a>
-
-                <div class="info-user">
-                    <div class="picture"></div>
-                    <div class="content" id="content">
-                        <h5>ADMIN</h5>
-
-                        <div class="online">
-                            <div class="info"></div>
-                            <p>online</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="main">
-                <div class="head-list">
-                    <span>REPORTS</span>
-                </div>
-                <div class="list-item">
-
-                    <a href="home.php">
-                        <i class="bi bi-speedometer2"></i>
-                        <span class="description">Dashboard</span>
-                    </a>
-                </div>
-                <div class="list-item">
-
-                    <a href="sales.php">
-                        <i class="bi bi-cash"></i>
-                        <span class="description">Sales</span>
-                    </a>
-                </div>
-
-                <div class="head-list">
-                    <span>MANAGE</span>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="users.php">
-                        <i class="bi bi-people"></i>
-                        <span class="description">Users</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-
-                    <a href="tiket.php">
-                        <i class="bi bi-upc"></i>
-                        <span class="description">Ticket</span>
-                    </a>
-                </div>
-
-
-
-            </div>
-
-        </div>
 
         <div class="main-content">
             <div id="menu-button">
@@ -146,12 +77,13 @@ $user = $user[0];
             <div class="wrapper">
                 <div class="header">
                     <p><?= $user["Username"] ?>`s Cart</p>
+                    <a href="users.php">Back</a>
                 </div>
 
                 <div class="isi">
                     
                     <div class="neck-content">
-                        <span>
+                        <!-- <span>
                             <form action="" method="post">
 
                                 <label for="">Show</label>
@@ -164,7 +96,7 @@ $user = $user[0];
                                 <label for="">entries</label>
                                 <button type="submit" name="set">set</button>
                             </form>
-                        </span>
+                        </span> -->
 
                         <span>
 
@@ -203,9 +135,9 @@ $user = $user[0];
                                 </tr>
                             <?php endforeach; ?>
                     </div>
-                    <div class="info">
+                    <!-- <div class="info">
                         <p>Showing 1 to 10</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -216,6 +148,7 @@ $user = $user[0];
     </div>
     </div>
 
+    <script src="script.js"></script>
 
     <script>
         $('#update').click(function() {
