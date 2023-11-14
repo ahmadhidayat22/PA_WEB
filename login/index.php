@@ -25,18 +25,21 @@
 
                 if(is_array($row) && !empty($row)){
                     $_SESSION['valid'] = $row['Email'];
-                    $_SESSION['username'] = $row['Username'];
-                    $_SESSION['age'] = $row['Age'];
-                    $_SESSION['id'] = $row['Id'];
+                    $res_role = $row['role'];
                 }else{
                     echo "<div class='message'>
-                      <p>Wrong Username or Password</p>
-                       </div> <br>";
-                   echo "<a href='index.php'><button class='btn'>Go Back</button>";
-         
+                    <p>Wrong Username or Password</p>
+                    </div> <br>";
+                    echo "<a href='index.php'><button class='btn'>Go Back</button>";
                 }
+                
                 if(isset($_SESSION['valid'])){
-                    header("Location: ");
+                    if ($res_role == "user"){
+                        header("Location: ../index.html");
+                    }
+                    else if ($res_role == "admin"){
+                        header("Location: ../admin/home.php");
+                    }
                 }
               }else{
 
