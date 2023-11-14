@@ -251,4 +251,6 @@
     transition: ease-in-out .1s;
 }
 
-
+#grafik{
+    z-index: 999;
+}

@@ -9,7 +9,7 @@ if (isset($_POST['tambah'])) {
     $tgl_tiba = htmlspecialchars($_POST['tgl_tiba']);
     $harga = htmlspecialchars($_POST['harga']);
 
-    if (preg_match('/^[A-Za-z]+$/', $asal) && preg_match('/^[A-Za-z]+$/', $tujuan)) {
+    if (preg_match('/^[A-Za-z]+$/', $asal) && preg_match('/^[A-Za-z]+$/', $tujuan)) { // validasi jika inputan tidak ada simbol min(-)
         if ($asal != $tujuan) {
             $result = mysqli_query($conn, "insert into tiket values ('','$asal','$tujuan','$tgl_berangkat','$tgl_tiba','$harga')");
 
@@ -48,13 +48,7 @@ if (isset($_POST['tambah'])) {
 }
 
 
-$tiket = [];
-
-
-// if (isset($_POST['set'])) {
-//     $entries = $_POST['entries'];
-// }
-// 
+$tiket = []; 
 ?>
 
 

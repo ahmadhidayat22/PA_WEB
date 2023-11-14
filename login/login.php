@@ -24,8 +24,18 @@
                 $row = mysqli_fetch_assoc($result);
 
                 if(is_array($row) && !empty($row)){
+                    $_SESSION['id_user'] = $row['id_user'];
                     $_SESSION['valid'] = $row['Email'];
                     $res_role = $row['role'];
+
+                    if($res_role == 'admin'){
+                    header("Location: ../admin/home.php");
+
+                    }else if($res_role == 'user'){
+                        header("Location: ../home.php");
+                    
+                    }
+
                 }else{
                     echo "<div class='message'>
                     <p>Wrong Username or Password</p>
@@ -33,18 +43,10 @@
                     echo "<a href='index.php'><button class='btn'>Go Back</button>";
                 }
                 
-                if(isset($_SESSION['valid'])){
-<<<<<<< HEAD:login/index.php
-                    if ($res_role == "user"){
-                        header("Location: ../index.html");
-                    }
-                    else if ($res_role == "admin"){
-                        header("Location: ../admin/home.php");
-                    }
-=======
-                    header("Location: ../index.php");
->>>>>>> 5043fa3e438eac5e1f65cbf9e32cdf2840aff145:login/login.php
-                }
+
+                // if(isset($_SESSION['valid'])){
+                //     header("Location: ../home.php");
+                // }
               }else{
 
             

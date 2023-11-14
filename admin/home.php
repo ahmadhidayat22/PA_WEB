@@ -25,6 +25,9 @@ require '../koneksi.php'
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+    <!-- CDN grafik -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
     <title>Admin</title>
 
 
@@ -42,7 +45,7 @@ require '../koneksi.php'
 
     <div class="container">
 
-       <?php @include "../includes/sidebar.php" ?>
+        <?php @include "../includes/sidebar.php" ?>
 
         <div class="main-content">
             <div id="menu-button">
@@ -179,9 +182,41 @@ require '../koneksi.php'
             </div>
 
             <!-- <h2>p</h2> -->
+
+
+            <canvas id="grafik" style="width:100%;height:400px"></canvas>
+
+            <?php
+            echo '
+
+            <script>
+            const xValues = ["Jan", "Feb", "Mar", "Mei", "Jun", "Jul", "Agust", "Sep", "Okt", "Nov", "Des"];
+            const yValues = [55, 49, 44, 24, 15];
+            const barColors = ["brown","brown","brown","brown",];
+
+            new Chart("grafik", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: true},
+                
+                
+                
+            }
+            });
+            </script>
+            ';
+            ?>
+
+
+
         </div>
-
-
         <script src="script.js"></script>
 </body>
 
