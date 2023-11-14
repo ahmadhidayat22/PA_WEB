@@ -1,3 +1,7 @@
+<?php
+    require "koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +26,11 @@
                 <a href="#home">Home</a>
                 <a href="#body">Tiket</a>
                 <a href="#kontak">Kontak</a>
-                <a href="login/index.php">Login</a>
             </div>
             <div class="nav-3">
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-                <a href="#"><i class="fa-solid fa-moon" id="toggledark"></i></a>   
+                <a href="login/login.php"><i class="fa-solid fa-user"></i></a>
+                <i class="fa-solid fa-moon" id="toggleDark"></i>
                 <a href="#" id="hamburger"><i class="fa-solid fa-bars-staggered"></i></a> 
             </div>
         </div>
@@ -44,7 +47,7 @@
             <div class="card">
                 <div class="about">
                     <h1>Pencarian Tiket</h1>
-                    <form action="">
+                    <form action="" method="post">
                         <table class="table">
                             <tr>
                                 <th><label for="">Asal Anda <i class="fa-solid fa-ship"></i> : </label></th>
@@ -69,6 +72,48 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="tabel-content">
+                <?php
+                if (isset($_POST['pesan'])) {
+                    
+                    $asal = $_POST['asal'];
+                    $tujuan = $_POST['tujuan'];
+                    $berangkat = $_POST['berangkat'];
+                    $tiba = $_POST['tiba'];
+                    
+                    $result = mysqli_query($conn, "SELECT * FROM tiket WHERE asal = '$asal' AND tujuan ='$tujuan' AND tanggal_berangkat ='$berangkat' AND tanggal_tiba ='$tiba'");
+                    $record = mysqli_fetch_assoc($result);
+                    if ($result->num_rows === 1) {
+                        $tiket[] = $record;
+                        
+                        foreach ($tiket as $tk) {
+                            
+                            echo "
+                            <h4>Asal Anda: </h4><br/>
+                            <h5>" . $tk['asal'] . "</h5><br>
+                            <h4>Tujuan Anda: </h4><br/>
+                            <h5>" . $tk['tujuan'] . "</h5><br>
+                            <h4>Tanggal Berangkat: </h4><br/>
+                            <h5>" . $tk['tanggal_berangkat'] . "</h5><br>
+                            <h4>Tanggal Tiba: </h4><br/>
+                            <h5>" . $tk['tanggal_tiba'] . "</h5><br>
+                            <h4>Harga Tiket: </h4><br/>
+                            <h5>" . $tk['harga'] . "</h5><br>
+                            
+                            ";
+                        }
+                    } else {
+                        echo "
+                                <script>
+                                    alert('Tiket Tidak Di temukan!');
+                                    document.location.href = 'index.php'; 
+                                </script>
+                            ";
+                    } 
+                }
+                ?>
+                <a href="bayar.php?id_tiket=<?=$tk["id_tiket"];?>">Pesan Tiket</a>
         </div>
     </section>
     <section class="kontak" id="kontak">

@@ -34,12 +34,16 @@
                 }
                 
                 if(isset($_SESSION['valid'])){
+<<<<<<< HEAD:login/index.php
                     if ($res_role == "user"){
                         header("Location: ../index.html");
                     }
                     else if ($res_role == "admin"){
                         header("Location: ../admin/home.php");
                     }
+=======
+                    header("Location: ../index.php");
+>>>>>>> 5043fa3e438eac5e1f65cbf9e32cdf2840aff145:login/login.php
                 }
               }else{
 

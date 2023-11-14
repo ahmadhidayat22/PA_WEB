@@ -1,24 +1,25 @@
-var toggled = document.getElementById('toggledark');
-var body = document.querySelector('body');
+const toggle = document.getElementById('toggleDark')
+const body = document.querySelector('body')
+const home = document.getElementById('home')
 
-toggled.addEventListener('click', function(){
-    if(this.classList.toggle('fa-solid fa-sun')){
+toggle.addEventListener('click', function(){
+    if(this.classList.toggle('fa-sun')){
         
-        this.classList.toggle('fa-solid fa-moon');
+        this.classList.toggle('fa-moon');
 
-        body.style.background = 'black';
+        home.style.background.src = 'img/home2.avif';
         body.style.color = 'white';
         body.style.transition = '2s';
         
     }else{
 
-        this.classList.toggle('fa-solid fa-moon');
+        this.classList.toggle('fa-moon');
 
-        body.style.background = 'white';
+        body.style.background = '#ADC4CE';
         body.style.color = 'black';
         body.style.transition = '2s';
     }
-});
+})
 
 
 const nav2 = document.querySelector('.nav-2');

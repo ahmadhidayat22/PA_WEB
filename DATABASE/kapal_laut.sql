@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 05:37 PM
+-- Generation Time: Nov 14, 2023 at 04:16 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,16 +79,18 @@ CREATE TABLE `users` (
   `Email` varchar(200) NOT NULL,
   `Age` int(11) NOT NULL,
   `Password` varchar(200) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL
+  `gambar` varchar(255) DEFAULT NULL,
+  `role` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `Username`, `Email`, `Age`, `Password`, `gambar`) VALUES
-(29, 'a', 'a', 10, 'a', 'no-image.jpg'),
-(30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg');
+INSERT INTO `users` (`id_user`, `Username`, `Email`, `Age`, `Password`, `gambar`, `role`) VALUES
+(29, 'a', 'a', 10, 'a', 'no-image.jpg', ''),
+(30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg', ''),
+(31, 'yen', 'yen@yen.com', 19, '123', NULL, 'user');
 
 --
 -- Indexes for dumped tables
@@ -128,13 +130,13 @@ ALTER TABLE `tiket`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
