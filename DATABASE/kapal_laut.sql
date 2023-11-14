@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 04:16 PM
+-- Generation Time: Nov 14, 2023 at 07:31 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,6 @@ CREATE TABLE `tiket` (
 --
 
 INSERT INTO `tiket` (`id_tiket`, `asal`, `tujuan`, `tanggal_berangkat`, `tanggal_tiba`, `harga`) VALUES
-(6, 'balikpapan', 'penajam', '2023-11-04', '2023-11-03', 65000),
 (8, 'balikpapan', 'Palu', '2023-11-04', '2023-11-05', 120000),
 (9, 'Sulawesi', 'Bau-bau', '2023-11-05', '2023-11-08', 200000);
 
@@ -64,8 +63,10 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `id_tiket`, `total_harga`, `tanggal_transaksi`) VALUES
-(3, 29, 8, 123000, '2023-11-03 16:19:12'),
-(6, 30, 9, 60000, '2023-11-04 00:36:16');
+(17, 32, 8, 120000, '2023-11-14 00:00:00'),
+(18, 32, 8, 120000, '2023-11-14 18:57:42'),
+(19, 32, 8, 120000, '2023-11-15 02:04:56'),
+(20, 32, 9, 200000, '2023-11-15 02:06:00');
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,7 @@ CREATE TABLE `users` (
   `Age` int(11) NOT NULL,
   `Password` varchar(200) NOT NULL,
   `gambar` varchar(255) DEFAULT NULL,
-  `role` varchar(225) NOT NULL
+  `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -88,9 +89,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `Username`, `Email`, `Age`, `Password`, `gambar`, `role`) VALUES
-(29, 'a', 'a', 10, 'a', 'no-image.jpg', ''),
-(30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg', ''),
-(31, 'yen', 'yen@yen.com', 19, '123', NULL, 'user');
+(30, 'ahmad', 'ahmad@den.com', 25, 'ahmad123', 'no-image.jpg', 'admin'),
+(32, 'amway', 'a@den.com', 11, '123', NULL, 'user');
 
 --
 -- Indexes for dumped tables
@@ -124,19 +124,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tiket` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
