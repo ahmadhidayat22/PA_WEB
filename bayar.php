@@ -2,7 +2,7 @@
     session_start();
     require "koneksi.php";
 
-    if(!isset($_SESSION['valid'])){
+    if(isset($_SESSION['valid']) !=  true){
         header("Location: login/login.php");
         exit;
     }

@@ -1,7 +1,6 @@
 <?php
-require '../koneksi.php'
-
-
+require '../koneksi.php';
+// require 'controller.php';
 
 ?>
 

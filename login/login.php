@@ -23,17 +23,30 @@
                 $result = mysqli_query($conn,"SELECT * FROM users WHERE Email='$email' AND Password='$password' ") or die("Select Error");
                 $row = mysqli_fetch_assoc($result);
 
+                echo "
+                        <script>
+                        console.log($row);
+                        </script>
+                        ";
                 if(is_array($row) && !empty($row)){
                     $_SESSION['id_user'] = $row['id_user'];
-                    $_SESSION['valid'] = $row['Email'];
+                    
                     $res_role = $row['role'];
 
                     if($res_role == 'admin'){
+                    $_SESSION['admin_log'] = true;
                     header("Location: ../admin/home.php");
 
+
                     }else if($res_role == 'user'){
+                        $_SESSION['valid'] = true;
                         header("Location: ../home.php");
-                    
+                    }else{
+                        echo "
+                        <script>
+                        alert('pler');
+                        </script>
+                        ";
                     }
 
                 }else{
