@@ -1,5 +1,13 @@
 <?php
-// session_start();
+session_start();
+if(!isset($_SESSION['admin_log'])){
+    echo "
+    <script>
+    alert('Anda Perlu Login Terlebih Dahulu!');
+    document.location.href = '../login/login.php'; 
+    </script>
+    ";
+}
 require '../koneksi.php';
 
 $id = $_GET["id"];

@@ -108,7 +108,7 @@
                             } 
                         }
                         ?>
-                <a href="user/bayar.php?id_tiket=<?=$tk["id_tiket"];?>" class="bayar">Pesan Tiket</a>
+                <a href="user/bayar.php" class="bayar">Pesan Tiket</a>
             </div>
         </div>
     </section>

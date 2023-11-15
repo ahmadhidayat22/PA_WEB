@@ -109,7 +109,7 @@
         </div>
         <div class="list-item logout">
 
-            <a href="../index.php">
+            <a href="../login/logout.php">
                 <i class="bi bi-power"></i>
                 <span class="description">Logout</span>
             </a>

@@ -2,9 +2,13 @@
     session_start();
     require "../koneksi.php";
 
-    if(isset($_SESSION['valid']) !=  true){
-        header("Location: login/login.php");
-        exit;
+    if(!isset($_SESSION['valid'])){
+        echo "
+        <script>
+        alert('Anda Perlu Login Terlebih Dahulu!');
+        document.location.href = '../login/login.php'; 
+        </script>
+        ";
     }
 
     $idt = $_GET["id_tiket"];

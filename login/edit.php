@@ -1,10 +1,15 @@
 <?php 
    session_start();
+    if(!isset($_SESSION['valid'])){
+        echo "
+        <script>
+        alert('Anda Perlu Login Terlebih Dahulu!');
+        document.location.href = '../login/login.php'; 
+        </script>
+        ";
+    }
 
    include("../koneksi.php");
-   if(!isset($_SESSION['valid'])){
-    header("Location: index.php");
-   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,16 +21,6 @@
     <title>Change Profile</title>
 </head>
 <body>
-    <div class="nav">
-        <div class="logo">
-            <p><a href="home.php"> Logo</a></p>
-        </div>
-
-        <div class="right-links">
-            <a href="#">Change Profile</a>
-            <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
-        </div>
-    </div>
     <div class="container">
         <div class="box form-box">
             <?php 
@@ -36,26 +31,26 @@
 
                 $id = $_SESSION['id'];
 
-                $edit_query = mysqli_query($conn,"UPDATE users SET Username='$username', Email='$email', Age='$age' WHERE Id=$id ") or die("error occurred");
+                $edit_query = mysqli_query($conn,"UPDATE users SET Username='$username', Email='$email', Age='$age' WHERE id_user=$id ") or die("error occurred");
 
                 if($edit_query){
                     echo "<div class='message'>
                     <p>Profile Updated!</p>
-                </div> <br>";
-              echo "<a href='home.php'><button class='btn'>Go Home</button>";
-       
+                    </div> <br>";
+                    echo "<a href='../user/home.php'><button class='btn'>Go Home</button>";
+                    
                 }
-               }else{
+            }else{
 
                 $id = $_SESSION['id'];
-                $query = mysqli_query($conn,"SELECT*FROM users WHERE Id=$id ");
-
+                $query = mysqli_query($conn,"SELECT*FROM users WHERE id_user=$id ");
+                
                 while($result = mysqli_fetch_assoc($query)){
                     $res_Uname = $result['Username'];
                     $res_Email = $result['Email'];
                     $res_Age = $result['Age'];
                 }
-
+                
             ?>
             <header>Change Profile</header>
             <form action="" method="post">
@@ -68,7 +63,7 @@
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" value="<?php echo $res_Email; ?>" autocomplete="off" required>
                 </div>
-
+                
                 <div class="field input">
                     <label for="age">Age</label>
                     <input type="number" name="age" id="age" value="<?php echo $res_Age; ?>" autocomplete="off" required>
@@ -80,8 +75,11 @@
                 </div>
                 
             </form>
+            <div class="right-links">
+                <a href="logout.php"> <button class="btn">Log Out</button> </a>
+            </div>
         </div>
         <?php } ?>
-      </div>
+    </div>
 </body>
 </html>

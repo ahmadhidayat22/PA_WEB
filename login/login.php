@@ -29,8 +29,7 @@
                         </script>
                         ";
                 if(is_array($row) && !empty($row)){
-                    $_SESSION['id_user'] = $row['id_user'];
-                    
+                    $_SESSION['id'] = $row['id_user'];
                     $res_role = $row['role'];
 
                     if($res_role == 'admin'){
@@ -53,7 +52,7 @@
                     echo "<div class='message'>
                     <p>Wrong Username or Password</p>
                     </div> <br>";
-                    echo "<a href='index.php'><button class='btn'>Go Back</button>";
+                    echo "<a href='login.php'><button class='btn'>Go Back</button>";
                 }
                 
 

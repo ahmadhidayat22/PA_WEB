@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['valid'])){
+        echo "
+        <script>
+        alert('Anda Perlu Login Terlebih Dahulu!');
+        document.location.href = '../login/login.php'; 
+        </script>
+        ";
+    }
     require "../koneksi.php";
 ?>
 
@@ -30,6 +39,7 @@
                 <a href="../login/logout.php">Log Out</a>
             </div>
             <div class="nav-3">
+                <a href="../login/edit.php"><i class="fa-solid fa-user"></i></a>
                 <i class="fa-solid fa-moon" id="toggleDark"></i>
                 <a href="#" id="hamburger"><i class="fa-solid fa-bars-staggered"></i></a> 
             </div>
