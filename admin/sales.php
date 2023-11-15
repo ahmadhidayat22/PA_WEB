@@ -104,9 +104,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                         </table>
                     </div>
-                    <div class="info">
-                        <p>Showing 1 to 10</p>
-                    </div>
+                   
                 </div>
 
             </div>

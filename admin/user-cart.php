@@ -3,9 +3,11 @@ require '../koneksi.php';
 
 $id = $_GET['id'];
 
+
+
 $result_tiket =  mysqli_query($conn, "select * from tiket");
 $result_user = mysqli_query($conn, "select * from users where id_user = '$id'");
-$result_join = mysqli_query($conn, "SELECT id_transaksi,id_user,asal,tujuan,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id_tiket = transaksi.id_tiket WHERE id_user = '$id'");
+$result_join = mysqli_query($conn, "SELECT id_transaksi,id_user,asal,tujuan,tanggal_berangkat,tanggal_tiba,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id_tiket = transaksi.id_tiket WHERE transaksi.id_user = '$id'");
 
 $tiket = [];
 $user = [];
@@ -112,16 +114,26 @@ $user = $user[0];
                             <tr>
                                 <th>Rute</th>
                                 <th>tanggal transaksi</th>
+                                <th>tanggal berangkat</th>
+                                <th>tanggal tiba</th>
                                 <th>Total Harga</th>
 
                                 <th>Tools</th>
                             </tr>
-                            <?php foreach ($res as $tr) : ?>
+                            <!-- <?php 
+                            if($res){
+                                    echo "ler";
+                            };
+                            ?> -->
 
+                            <?php foreach ($res as $tr) : ?>
+                            
                                 <tr>
 
                                     <td><?= $tr["asal"] ?> - <?= $tr["tujuan"] ?></td>
                                     <td><?= $tr["tanggal_transaksi"] ?></td>
+                                    <td><?= $tr["tanggal_berangkat"] ?></td>
+                                    <td><?= $tr["tanggal_tiba"] ?></td>
                                     <td><?= $tr["total_harga"] ?></td>
 
                                     <td width="15%">

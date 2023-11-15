@@ -23,6 +23,19 @@ input[type=number] {
     overflow: hidden;
 
 }
+.wrapper .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.wrapper .header a{
+    color: black;
+    text-decoration: none;
+}
+.wrapper .header a:nth-child(2){
+    color: rgb(0, 0, 0);
+}
 
 .wrapper .isi .head-content{
     border-bottom: 1px solid #bbbb;

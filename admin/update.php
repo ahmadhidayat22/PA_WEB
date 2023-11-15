@@ -14,10 +14,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 $prd = $prd[0];
 
 
-if(isset($_POST['back'])){
+if (isset($_POST['back'])) {
     header('Location:tiket.php');
     exit();
-}else if(isset($_POST['change'])){
+} else if (isset($_POST['change'])) {
     $asal = $_POST['asal'];
     $tujuan = $_POST['tujuan'];
     $tgl_berangkat = $_POST['tgl_berangkat'];
@@ -83,7 +83,7 @@ if(isset($_POST['back'])){
 <body>
     <div class="container">
 
-    <?php @include "../includes/sidebar.php" ?>
+        <?php @include "../includes/sidebar.php" ?>
 
 
         <div class="main-content">
@@ -141,7 +141,11 @@ if(isset($_POST['back'])){
 
 
     <script src="script.js"></script>
-        
+
+    <script>
+        datemin.min = new Date().toISOString().split("T")[0];
+        datemin1.min = new Date().toISOString().split("T")[0];
+    </script>
 
 
 </body>

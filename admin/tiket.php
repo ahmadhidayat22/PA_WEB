@@ -208,16 +208,14 @@ $tiket = [];
                                     while ($record = mysqli_fetch_assoc($result)) {
                                         $tiket[] = $record;
                                     }
-                                    // echo $keyword;
+                                    
                                 } else {
                                     $result = mysqli_query($conn, "SELECT * FROM tiket");
                                     while ($record = mysqli_fetch_assoc($result)) {
                                         $tiket[] = $record;
                                     }
                                 }
-                                //     while ($record = mysqli_fetch_assoc($result)) {
-                                //     $tiket[] = $record;
-                                // }
+                            
 
                                 foreach ($tiket as $tk) {
 
@@ -292,15 +290,15 @@ $tiket = [];
                 $('#mymodal').css('display', 'none');
 
             });
-            let modal = $('#mymodal')
-            $(window).click(function(event) {
-                // console.log(modal)
-                if (event.target == modal) {
-                    alert('p');
+            // let modal = $('#mymodal')
+            // $(window).click(function(event) {
+            //     // console.log(modal)
+            //     if (event.target == modal) {
+            //         alert('p');
 
-                    $('#mymodal').css('display', 'none');
-                }
-            });
+            //         $('#mymodal').css('display', 'none');
+            //     }
+            // });
             datemin.min = new Date().toISOString().split("T")[0];
             datemin1.min = new Date().toISOString().split("T")[0];
         </script>

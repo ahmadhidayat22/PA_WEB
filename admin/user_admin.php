@@ -97,8 +97,8 @@ $user = [];
             </div>
             <div class="wrapper">
                 <div class="header">
-                    <a href="">User</a>
-                    <a href="user_admin.php">Admin <i class="bi bi-arrow-right"></i></a>
+                    <a href="users.php" style="color:black;"><i class="bi bi-arrow-left"></i>User </a>
+                    <a href="" style="color:black">Admin</a>
 
                 </div>
 
@@ -124,15 +124,15 @@ $user = [];
                                 <th>Email</th>
                                 <th>Age</th>
                                 <th>Role</th>
-                                <th>Tools</th>
                             </tr>
                             <?php
                             $keyword= '';
                             if (isset($_POST['cari'])) {
                                 $keyword = $_POST['cari'];
-                                $result = mysqli_query($conn, "select * from users where Username like '%$keyword%' or Email like '%$keyword%' and role ='user'");
+                                $result = mysqli_query($conn, "select * from users where Username like '%$keyword%' or Email like '%$keyword%' and role = 'admin
+                                ");
                             }else{
-                                $result = mysqli_query($conn, "select * from users where role = 'user'");
+                                $result = mysqli_query($conn, "select * from users where role ='admin'");
                             }
                             while ($record = mysqli_fetch_assoc($result)) {
                                 $user[] = $record;
@@ -144,25 +144,8 @@ $user = [];
                                     <td>" . $sr["Username"] . "</td>
                                     <td>" . $sr["Email"] . "</td>
                                     <td>" . $sr["Age"] . "</td>
-                                    <td>" . $sr["role"] . "</td>
-                
-
-                                    <td width='25%'>
-                                    
-                                        <a href='user-cart.php?id=" . $sr['id_user'] . "'>
-                                        
-                                        
-                                        <button type='submit' id='cart' data-id='" . $sr['id_user'] . "' style='background-color:rgb(22, 143, 173)'><i class='bi bi-search'></i> Cart</button>
-                                        </a>
-                                        
-                                   
-                                        <a href='delete-user.php?id=" . $sr['id_user'] . "'>
-                                            <button style='background-color:rgb(177, 7, 7)'><i class='bi bi-trash3-fill'></i> Delete</button>
-                                            </a>
-                                            </td>
-                                            </tr>
-                                            
-                                            ";
+                                    <td>" . $sr["role"] . "</td>         
+                                    ";
 
                             endforeach;
 
