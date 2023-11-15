@@ -1,0 +1,75 @@
+* {
+    padding:0;
+    margin:0;
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+}  
+
+body{
+    background-image: url(../img/home3.png);
+    background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center;
+}
+
+.keluar{
+    padding: 1rem;
+}
+
+.keluar i{
+    padding: 1rem;
+    font-size: 2rem;
+    color: azure;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: black;
+
+	box-shadow: 1px 1px 5px rgba(1, 1, 5, 1);
+}
+
+.keluar i:hover{
+    color: black;
+    background-color: azure;
+}
+
+.transaksi{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.box{
+    padding: 1rem;
+    width: 40%;
+    background-color: aliceblue;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    border-radius: 1rem; 
+	box-shadow: 1px 1px 5px rgba(1, 1, 5, 1);
+}
+
+.box form{
+    padding: 3rem;
+}
+
+.box form button{
+    bottom: 0;
+    width: 50%;
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.8rem 2rem;
+	font-size: 1rem;
+	color: steelblue;
+	background-color:  black;
+	border-radius: 1rem;
+	box-shadow: 1px 1px 5px rgba(1, 1, 5, 1);
+}
+
+.box form button:hover {
+	color: white;
+	background-color: skyblue;
+}

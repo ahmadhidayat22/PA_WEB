@@ -312,17 +312,18 @@
 }
 
 .tabel-content{
-	display: none;
+	display: flex;
+    justify-content: center;
 }
 
-.tabel-content{
+/* .tabel-content{
     display: none;
-}
+} */
 
-.tabel-content.active{
+/* .tabel-content.active{
 	display: flex;
 	justify-content: center;
-}
+} */
 
 .cari_tiket{
 	width: 40%;

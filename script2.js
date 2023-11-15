@@ -26,7 +26,7 @@ document.querySelector('#hamburger').onclick = () => {
 const search = document.querySelector('.tabel-content');
 // const pesan = document.getElementById('#pesan');
 document.querySelector('#pesan').onclick = () => {
-    pesan.classList.toggle('active');
+    search.style.display = flex;
 };
 // pesan.addEventListener('click', function(){
 
