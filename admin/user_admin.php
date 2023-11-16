@@ -10,16 +10,10 @@ if(!isset($_SESSION['admin_log'])){
 }
 require '../koneksi.php';
 
-
-
 $user = [];
-
-
-
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,9 +157,6 @@ $user = [];
 
                         </table>
                     </div>
-                    <!-- <div class="info">
-                        <p>Showing 1 to 10</p>
-                    </div> -->
                 </div>
             </div>
 

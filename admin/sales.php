@@ -53,9 +53,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="container">
     <?php @include "../includes/sidebar.php" ?>
 
-
-
-
         <div class="main-content">
             <div id="menu-button">
                 <input type="checkbox" name="" id="menu-checkbox">
@@ -71,21 +68,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <div class="isi">
                     
                     <div class="neck-content">
-                        <!-- <span>
-                            <form action="" method="post">
-
-                                <label for="">Show</label>
-                                <select id="entries" name="entries">
-                                    <option value="10">1</option>
-                                    <option value="20">2</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <label for="">entries</label>
-                                <button type="submit" name="set">set</button>
-                            </form>
-                        </span> -->
-
                         <span>
 
                             <label for="">Search: </label>
@@ -118,8 +100,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             </div>
         </div>
-
-
 
         <script src="script.js"></script>
 

@@ -34,8 +34,6 @@
         $tanggal = date('Y-m-d H-i-s');
 
         $result = mysqli_query($conn, "INSERT INTO transaksi VALUES ('', '$idu', '$idt', '$total_harga', '$tanggal')");
-
-        // $result = mysqli_query($conn, "INSERT INTO transaksi VALUES('','$idu', '$idt', '$total_harga', '$tanggal')");
         if($result){
             echo "
                 <script>
@@ -51,22 +49,6 @@
             </script>
             "; 
         }
-        // if(mysqli_affected_rows($conn) > 0){
-        //     echo "
-        //     <script>
-        //         alert('Tiket Telah Berhasil Dibayar!');
-        //         document.location.href = 'index.php'; 
-        //     </script>
-        //     ";
-        // }else{
-        //     echo "
-        //     <script>
-        //         alert('Tiket Gagal Dibayar!');
-           
-        //     </script>
-        //     ";
-        // }
-
     }
 ?>
 

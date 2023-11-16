@@ -12,18 +12,11 @@
 
 }
 
-
-
-
-
-/* toogle menu */
-
 #menu-button{
     width: 36px;
     position: absolute;
     overflow: hidden;
     margin: 10px;
-    /* background-color: red; */
 }
 
 #menu-label{
@@ -142,7 +135,6 @@
 .wrapper{
     width: auto;
     min-width: 100%;
-    /* border: 1px solid red; */
     margin: 50px 0;
     padding: 10px;
 }

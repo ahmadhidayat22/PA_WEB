@@ -22,19 +22,11 @@ while ($record = mysqli_fetch_assoc($result_tiket)) {
     $tiket[] = $record;
 }
 
-
-
 $user = $user[0];
 
-
-
-
-
-
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,31 +77,13 @@ $user = $user[0];
                 <div class="isi">
                     
                     <div class="neck-content">
-                        <!-- <span>
-                            <form action="" method="post">
-
-                                <label for="">Show</label>
-                                <select id="entries" name="entries">
-                                    <option value="10">1</option>
-                                    <option value="20">2</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <label for="">entries</label>
-                                <button type="submit" name="set">set</button>
-                            </form>
-                        </span> -->
-
                         <span>
-
                             <label for="">Search: </label>
                             <input type="text">
                         </span>
                     </div>
 
                     <div class="tabel-content">
-
-
                         <table>
                             <tr>
                                 <th>Rute</th>
@@ -120,11 +94,6 @@ $user = $user[0];
 
                                 <th>Tools</th>
                             </tr>
-                            <!-- <?php 
-                            if($res){
-                                    echo "ler";
-                            };
-                            ?> -->
 
                             <?php foreach ($res as $tr) : ?>
                             
@@ -137,9 +106,6 @@ $user = $user[0];
                                     <td><?= $tr["total_harga"] ?></td>
 
                                     <td width="15%">
-
-
-
                                         <a href="delete-cart.php?id=<?= $tr['id_transaksi'] ?>">
                                             <button style="background-color:rgb(177, 7, 7)"><i class="bi bi-trash3-fill"></i> Delete</button>
                                         </a>
@@ -147,15 +113,9 @@ $user = $user[0];
                                 </tr>
                             <?php endforeach; ?>
                     </div>
-                    <!-- <div class="info">
-                        <p>Showing 1 to 10</p>
-                    </div> -->
                 </div>
             </div>
         </div>
-
-
-
 
     </div>
     </div>

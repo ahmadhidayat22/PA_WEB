@@ -144,21 +144,6 @@ $tiket = [];
 
                 </div>
             </div>
-            <!-- 
-            <div class="modal" id="mymodal-update">
-                <div class="modal-content" id="1">
-                    <div class="header-content">
-                        <h3>Update Tiket</h3>
-                    </div>
-                    <div id="close"><i class="bi bi-x"></i></div>
-                    
-                    
-
-                </div>
-            </div> -->
-
-
-
             <div class="wrapper">
                 <div class="header">
                     <p>Ticket List</p>
@@ -170,21 +155,6 @@ $tiket = [];
 
                     </div>
                     <div class="neck-content">
-                        <!-- <span>
-                            <form action="" method="POST">
-
-                                <label for="entries">Show</label>
-                                <select id="entries" name="entries" onchange="">
-                                    <option value="10">1</option>
-                                    <option value="20">2</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <label for="">entries</label>
-                                <button type="submit" name="set">set</button>
-                            </form>
-                        </span> -->
-
                         <span>
                             <form action="" method="post">
 
@@ -265,9 +235,6 @@ $tiket = [];
 
                         </table>
                     </div>
-                    <!-- <div class="info">
-                        <p>Showing 1 to 10</p>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -299,15 +266,6 @@ $tiket = [];
                 $('#mymodal').css('display', 'none');
 
             });
-            // let modal = $('#mymodal')
-            // $(window).click(function(event) {
-            //     // console.log(modal)
-            //     if (event.target == modal) {
-            //         alert('p');
-
-            //         $('#mymodal').css('display', 'none');
-            //     }
-            // });
             datemin.min = new Date().toISOString().split("T")[0];
             datemin1.min = new Date().toISOString().split("T")[0];
         </script>
