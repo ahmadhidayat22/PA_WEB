@@ -41,12 +41,6 @@
                     }else if($res_role == 'user'){
                         $_SESSION['valid'] = true;
                         header("Location: ../user/home.php");
-                    }else{
-                        echo "
-                        <script>
-                        alert('pler');
-                        </script>
-                        ";
                     }
 
                 }else{
