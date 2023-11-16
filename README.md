@@ -73,3 +73,7 @@ https://
 ==> Menu ticket yang berisi semua tiket di dalam database yang dapat di tambah, di edit dan di hapus
 ![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/a9eb22b1-8698-4230-8ef2-9a4354a8f6a8)
 ==> jika kita ingin mengganti foto profil kita dapat mengklik foto profil 
+
+
+## License
+Copyright (c) 2023 Kelompok 6 B`22
