@@ -9,7 +9,7 @@
 
 # DEMO
 ```bash
-https://
+http://projek-ku.000webhostapp.com/?authuser=0
 ```
 
 # Tutorial
