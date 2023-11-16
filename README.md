@@ -21,6 +21,7 @@ https://
 ![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/89ddd3e1-a478-4652-bfd1-94e9d752ccdc)
 # Tiket
 ![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d2f931b0-d70d-4a4b-947c-2c77ba2b8033)
+==> Disini terdapat fitur yang dapat di gunakan untuk mencari tiket dan akan tampil pada tiket anda
 # Kontak
 ![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/58252ee8-fd1b-4032-882b-14192f457bcb)
 # Darkmode
