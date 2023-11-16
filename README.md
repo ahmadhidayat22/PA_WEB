@@ -13,7 +13,7 @@ http://projek-ku.000webhostapp.com/?authuser=0
 ```
 
 # Tutorial
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/c2cce6e8-4f38-4c08-8556-4f338149f1ec)
+![Screenshot 2023-11-16 135624](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/7f6bc64c-112c-45db-9679-349893c2e66a)
 ==> Berikut adalah landing page dari website kami <br />
 ==> terdapat beberapa fitur di navbar yang akan mengarahkan ke home, tiket dan kontak <br />
 ==> terdapat juga beberapa icon yaitu icon user yang akan mengarahkan ke page login dan icon bulan yang akan mngubah website ke tema darkmode <br />
