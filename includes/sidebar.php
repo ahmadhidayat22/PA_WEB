@@ -17,7 +17,7 @@
                 <?php
                 session_start();
                 require '../koneksi.php';
-                $id_u = $_SESSION['id_user'];
+                $id_u = $_SESSION['id'];
 
                 $hasil = mysqli_query($conn, "select gambar from users where id_user = '$id_u'");
                 $gambar = [];

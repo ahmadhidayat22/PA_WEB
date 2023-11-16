@@ -175,7 +175,7 @@ body{
 	.tiket .card{
 		padding: 1rem;
 		width: 80%;
-		height: 100%;
+		height: 200px;
 		/* border: 1px solid black; */
 		border-radius: 1rem;
 		background-color:#1F4172;

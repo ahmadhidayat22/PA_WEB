@@ -1,7 +1,12 @@
 <?php
+session_start();
 require '../koneksi.php';
-$id = $_SESSION['id_user'];
+$id = $_SESSION['id'];
 
+
+echo "<script>
+            alert($id); 
+            </script>";
 if (isset($_POST['change'])) {
     $date = date('Y-m-d');
     $image = $_FILES['gambar']['name'];
@@ -16,7 +21,9 @@ if (isset($_POST['change'])) {
         
         $result = mysqli_query($conn, "update users set gambar = '$new_image' where id_user= '$id'");
         if ($result) {
-            echo "berhasil";
+            echo "<script>
+            alert('brehasil'); 
+            </script>";
             header("Location: home.php");
         } else {
             echo "<script>

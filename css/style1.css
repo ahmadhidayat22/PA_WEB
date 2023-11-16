@@ -8,6 +8,10 @@
 	text-decoration: none;
 }  
 
+body{
+	overflow-x: hidden;
+}
+
 :root{
 	--primary-background-image: url(../img/home3.png);
 	--logo-image: url(../img/logo1.png);
@@ -44,19 +48,6 @@
 	background-position: absolute;
 }
 
-.btn{
-    height: 35px;
-    background: rgba(76,68,182,0.808);
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all .3s;
-    margin-top: 10px;
-    padding: 0px 10px;
-}
-
 .nav{
 	display: flex;
 	justify-content: space-between;
@@ -76,7 +67,6 @@
 	justify-content: center;
 	padding-left: 15px;
 }
-
 
 .nav-2 a{
 	color: var(--two-color);
@@ -147,6 +137,10 @@
 		display: inline-block;
 	}
 
+	.nav-2.active{
+		right: 0;
+	}
+
 	.nav-2{
 		position: absolute;
 		top: 100px;
@@ -155,11 +149,6 @@
 		width: 30rem;
 		height: 87.5vh;
         transition: 0.3s;
-	}
-
-	.nav-2.active{
-		right: 0;
-        top: 100px;
 	}
 
     .nav-2 a{
@@ -186,7 +175,7 @@
 	.tiket .card{
 		padding: 1rem;
 		width: 80%;
-		height: 100%;
+		height: 200px;
 		/* border: 1px solid black; */
 		border-radius: 1rem;
 		background-color:#1F4172;
@@ -197,6 +186,31 @@
 @media (max-width: 450px) {
 	html {
 		font-size: 55%;
+	}
+	.nav-2{
+		position: absolute;
+		top: 100px;
+		right: -100%;
+		background-color: var(--two-color);
+		width: 30rem;
+		height: 79.5vh;
+        transition: 0.3s;
+	}
+
+	.landing::after{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: -22px;
+        background: linear-gradient(0deg, var(--five-color)3%, rgba(255, 255, 255, 0)30%);
+    }
+
+	.tkt{
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
 	}
 }
 
@@ -268,15 +282,18 @@
     display: flex;
 	justify-content: center;
 	/* border: 1px solid black; */
+    
 }
 
 .tiket .card{
-	padding: 1rem;
+    padding: 1rem;
     width: 70%;
+    height: 280px;
     /* border: 1px solid black; */
 	border-radius: 1rem;
 	background-color: var(--card-color);
 	box-shadow: 1px 1px 5px rgba(1, 1, 5, 1);
+    position: relative;
 }
 
 .card .about{
@@ -284,7 +301,6 @@
 	/* justify-content: center; */
     flex-direction: column;
 	/* text-align: center; */
-    /* position: relative; */
 }
 
 .card .about form{
@@ -295,12 +311,15 @@
 }
 
 .tkt{
+
     display: flex;
     gap: 1rem;
 }
 
 .card .about .pesan{
-    bottom: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
     width: 30%;
 	display: inline-block;
 	margin-top: 0.5rem;

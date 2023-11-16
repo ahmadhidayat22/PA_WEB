@@ -9,7 +9,6 @@ if(!isset($_SESSION['admin_log'])){
     ";
 }
 require '../koneksi.php';
-// require 'controller.php';
 
 ?>
 
@@ -199,8 +198,8 @@ require '../koneksi.php';
 
             <script>
             const xValues = ["Jan", "Feb", "Mar", "Mei", "Jun", "Jul", "Agust", "Sep", "Okt", "Nov", "Des"];
-            const yValues = [55, 49, 44, 24, 15];
-            const barColors = ["brown","brown","brown","brown",];
+            const yValues = [45, 49, 44, 24, 15,44,57,24,100,68,34];
+            const barColors = ["brown","brown","brown","brown","brown","brown","brown","brown","brown","brown","brown","brown"];
 
             new Chart("grafik", {
             type: "bar",
@@ -212,11 +211,11 @@ require '../koneksi.php';
                 }]
             },
             options: {
-                legend: {display: true},
+                legend: {display: false} ,
+               
+            }  
+           
                 
-                
-                
-            }
             });
             </script>
             ';
