@@ -11,7 +11,7 @@
         ";
     }
 
-    $idu = $_SESSION['id_user'];
+    $idu = $_SESSION['id'];
 
     $result = mysqli_query($conn, "SELECT id_transaksi,id_user,asal,tanggal_berangkat,tujuan,tanggal_transaksi,total_harga FROM tiket INNER JOIN transaksi ON tiket.id_tiket = transaksi.id_tiket WHERE id_user = '$idu'");
     $request = [];

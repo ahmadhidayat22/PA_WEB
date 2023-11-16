@@ -27,7 +27,7 @@
     ;
     
     if(isset($_POST['bayar'])){
-        $idu = $_SESSION['id_user'];
+        $idu = $_SESSION['id'];
         $idt = $_GET['id_tiket'];
         $total_harga = $request['harga'];
         date_default_timezone_set("Asia/Makassar");
