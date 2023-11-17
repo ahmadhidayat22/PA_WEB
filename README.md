@@ -1,4 +1,4 @@
-![Screenshot 2023-11-16 143324](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/ef9e2701-e2b3-4fc3-9fcd-5ec8d5f6aac2)![Screenshot 2023-11-16 143403](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/aae03557-7d72-4eb7-b560-b7a1f6656707)# PA_WEB
+# PA_WEB
 
 ** PEMESANAN TIKET KAPAL BERBASIS WEBSITE **
 
