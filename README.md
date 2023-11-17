@@ -53,7 +53,7 @@ http://projek-ku.000webhostapp.com/?authuser=0
 ==> jika telah di bayar terdapat notifikasi seperti di atas
 ![Screenshot 2023-11-16 163645](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/2f347393-b60f-48b4-a56a-35a1df049684)
 ==> Berikut tampilan dari riwayat pembelian tiket kita
-![Uploading Screenshot 2023-11-16 164556.png…]()
+![Screenshot 2023-11-17 220924](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/cc54ea8c-cb0e-4970-a6f8-a0c32002e06c)
 ==> Berikut tampilan jika kita menekan icon user <br />
 ==> kita dapat melakukan update akun dan juga logout <br />
 # Admin
