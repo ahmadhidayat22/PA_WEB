@@ -71,7 +71,7 @@ http://projek-ku.000webhostapp.com/?authuser=0
 ![Screenshot 2023-11-16 170028](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/ec4e5c18-d2f5-4866-8990-afe378f520c2)
 ![Screenshot 2023-11-16 170155](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/95f131af-8b0f-4a6b-915e-faa038ad6645)
 ==> Menu ticket yang berisi semua tiket di dalam database yang dapat di tambah, di edit dan di hapus
-![Screenshot 2023-11-16 170240](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/882157f0-029a-4874-b068-c4a5d265a6ad)
+![Screenshot 2023-11-16 170240](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/882157f0-029a-4874-b068-c4a5d265a6ad) <br />
 ==> jika kita ingin mengganti foto profil kita dapat mengklik foto profil 
 
 
