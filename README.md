@@ -1,4 +1,4 @@
-# PA_WEB
+![Screenshot 2023-11-16 143324](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/ef9e2701-e2b3-4fc3-9fcd-5ec8d5f6aac2)![Screenshot 2023-11-16 143403](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/aae03557-7d72-4eb7-b560-b7a1f6656707)# PA_WEB
 
 ** PEMESANAN TIKET KAPAL BERBASIS WEBSITE **
 
@@ -20,58 +20,58 @@ http://projek-ku.000webhostapp.com/?authuser=0
 # Home
 ![Screenshot 2023-11-16 141310](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/3b1c88a9-948d-442e-a833-29e732664300)
 # Tiket
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d2f931b0-d70d-4a4b-947c-2c77ba2b8033)
+![Screenshot 2023-11-16 141432](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/65ddb45f-307a-4bd1-9307-cf73bf9b4d3a)
 ==> Disini terdapat fitur yang dapat di gunakan untuk mencari tiket dan akan tampil pada tiket anda <br />
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/1ece43e1-0424-4a22-a02c-6236ff403fd9) <br />
+![Screenshot 2023-11-16 161905](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/e434ffde-a36e-42c9-aaf3-ecc751ca3d1a) <br />
 ==> Kita dapat mencari tiket dengan memasukkan data sesuai inputan <br />
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/1c3d3897-d07e-4b0d-b78f-e22adfe7bcd5) <br />
+![Screenshot 2023-11-16 161920](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/6088a367-0338-4be3-96ae-33f6ae339a44) <br />
 ==> Berikut tampilan jika tiket yang kita cari ada <br />
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/6ae7552d-108c-485e-85ed-a4a1a2346eab) <br />
+![Screenshot 2023-11-16 162317](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/e193dc40-fdd6-403c-a198-cb7203666de3) <br />
 ==> Berikut tampilan jika tiketnya tidak ada <br />
 ==> Jika ingin memesan kita harus login terlebih dahulu
 # Kontak
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/58252ee8-fd1b-4032-882b-14192f457bcb)
+![Screenshot 2023-11-16 141707](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/61465624-75d9-49e5-a3fa-51969a4ee7a6)
 # Darkmode
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/a8a455ac-985b-42ba-a132-fd025e8dfd45)
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/3fbff298-c5de-4756-9598-b9d82d3e1808)
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/cf21560c-666b-494e-9d92-cf9ae8c2020d)
+![Screenshot 2023-11-16 143324](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/6cc158f7-020a-42ec-b811-606a808e7c60)
+![Screenshot 2023-11-16 143403](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/21b2654d-564b-4356-8c0d-156c6a1e2a62)
+![Screenshot 2023-11-16 143436](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/8b1d6f41-520b-43a6-8a16-92045f7aa988)
 # Login
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d264f6cd-d348-4671-99c4-ba33d786eaad)
+![Screenshot 2023-11-16 162816](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/3f18f155-f3c0-4da6-acb7-f0e2d61ba754)
 ==> Berikut tampilan untuk login 
 # Registrasi
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/c74c5000-727c-4028-b962-0024b45ac60a)
+![Screenshot 2023-11-16 162909](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/8ce048d8-592a-400e-9812-66e2843f8ba0)
 ==> Berikut tampilan untuk registrasi
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d0417488-719d-4389-9e11-5326c2d687c6)
+![Screenshot 2023-11-16 163043](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/c5eb8ca2-c631-4003-a265-daab14fa43fc)
 ==> Berikut tampilan jika berhasil regis
 # User
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/c5442673-eb8d-4647-b8cc-44ce97f849b9)
+![Screenshot 2023-11-16 163228](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/12337f03-c638-4ab6-b40e-7cdcbbbb7b02)
 ==> Berikut tampilan jika sudah melakukan login <br />
 ==> terdapat menu riwayat pada navbar yang akan menampilkan riwayat tiket yang sudah kita beli
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/dff18e0e-cf4a-48d6-8d46-06b3e8345bab)
+![Screenshot 2023-11-16 163431](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/2bebb28a-0f44-4735-8052-ec4b6b2a7bc1)
 ==> Berikut tampilan saat ingin membayar tiket
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d0a01c8f-79de-4b36-9432-691045b2c1ee) <br />
+![Screenshot 2023-11-16 163541](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/5270a8d1-811a-4eb8-84d7-12789d2ae7fa) <br />
 ==> jika telah di bayar terdapat notifikasi seperti di atas
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/11502d97-2a90-467d-abd2-f9e31aa55af8)
+![Screenshot 2023-11-16 163645](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/2f347393-b60f-48b4-a56a-35a1df049684)
 ==> Berikut tampilan dari riwayat pembelian tiket kita
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/077bae13-2746-4949-8a54-477e62848a31)
+![Uploading Screenshot 2023-11-16 164556.png…]()
 ==> Berikut tampilan jika kita menekan icon user <br />
 ==> kita dapat melakukan update akun dan juga logout <br />
 # Admin
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/029ee801-1f27-4ed9-85dd-c9d28ebdda66)
+![Screenshot 2023-11-16 165202](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/88f3f47c-d634-4006-8cc3-965bc7c745b7)
 ==> Berikut merupakan dashboard jika kita login sebagai admin <br />
 ==> terdapat total penjualan tiket <br />
 ==> jumlah user yang telah registrasi <br />
 ==> jumlah tiket yang ada <br />
 ==> Kemudian ada total pendapatan hari ini <br />
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/7d24e755-ef83-4a1e-819e-c986e9a1d39c)
+![Screenshot 2023-11-16 165607](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/73cc7960-d8e7-49cd-b8a7-9360b6fed599)
 ==> Kemudian ada menu sales yang menampilkan semua tiket yang telah terjual
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/51b102dd-bca1-4ef8-9958-cc6e39d033ce)
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/137e2a55-efe1-4381-aa2c-5c03a8858be0)
+![Screenshot 2023-11-16 165856](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d844730e-5b97-4332-87e9-d8fe63fa95f2)
+![Screenshot 2023-11-16 170000](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/5a40f931-162e-4f39-ad94-3031ab3df30b)
 ==> Menu users berisi tampilan akun pengguna baik user maupun admin
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d7f59a69-4052-47f5-af27-2b570374ef97)
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/be930479-fb59-4cab-81ad-1e297bf41c8a)
+![Screenshot 2023-11-16 170028](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/ec4e5c18-d2f5-4866-8990-afe378f520c2)
+![Screenshot 2023-11-16 170155](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/95f131af-8b0f-4a6b-915e-faa038ad6645)
 ==> Menu ticket yang berisi semua tiket di dalam database yang dapat di tambah, di edit dan di hapus
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/a9eb22b1-8698-4230-8ef2-9a4354a8f6a8)
+![Screenshot 2023-11-16 170240](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/882157f0-029a-4874-b068-c4a5d265a6ad)
 ==> jika kita ingin mengganti foto profil kita dapat mengklik foto profil 
 
 
