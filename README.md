@@ -18,7 +18,7 @@ http://projek-ku.000webhostapp.com/?authuser=0
 ==> terdapat beberapa fitur di navbar yang akan mengarahkan ke home, tiket dan kontak <br />
 ==> terdapat juga beberapa icon yaitu icon user yang akan mengarahkan ke page login dan icon bulan yang akan mngubah website ke tema darkmode <br />
 # Home
-![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/89ddd3e1-a478-4652-bfd1-94e9d752ccdc)
+![Screenshot 2023-11-16 141310](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/3b1c88a9-948d-442e-a833-29e732664300)
 # Tiket
 ![image](https://github.com/ahmadhidayat22/PA_WEB/assets/128040566/d2f931b0-d70d-4a4b-947c-2c77ba2b8033)
 ==> Disini terdapat fitur yang dapat di gunakan untuk mencari tiket dan akan tampil pada tiket anda <br />
